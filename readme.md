@@ -1,17 +1,11 @@
-# BaselHack 2024
+# BaselHack 2024 - SmartBoxInventory
 
-This is the template repository, which makes our lives (and especially the lives of the jury) easier,
-if you follow our structure.
+This repository was created at the BaselHack 2024.
 
-## Explanation
+## Development
 
-Please make sure that everything, that is code related, goes into `code` directory.
+For the development, check out the `development` folder. All instruction on the development environment can be found here: [Development Starter](./documentation/development.md)
 
-If you have documentation about the code (e.g. UML Diagrams, a readme etc.), that should go into the `documentation` directory.
+## Documentation
 
-If you have assets (like videos, presentations etc.), this can go into the `assets` directory.
-
-You can use the MIT license in this template. Make sure to adjust the copy right holders in the placeholder `<copyright holder>` and add every team member to it.
-You are also free to choose any other license - depending on the consensus of your team.
-
-Thanks a lot!
+For all the documentation, check out the `documentation` folder. Find the index here: [Documentation Home](./documentation/index.md)
