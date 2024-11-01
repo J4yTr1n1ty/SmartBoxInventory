@@ -8,4 +8,4 @@ For the development, check out the `development` folder. All instruction on the 
 
 ## Documentation
 
-For all the documentation, check out the `documentation` folder. Find the index here: [Documentation Starter](./documentation/index.md)
+For all the documentation, check out the `documentation` folder. Find the index here: [Documentation Home](./documentation/index.md)
