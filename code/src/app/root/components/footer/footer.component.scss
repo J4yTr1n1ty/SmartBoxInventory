@@ -4,6 +4,28 @@
   z-index: 1000;
   display: flex;
   justify-content: space-around;
-  padding: 2em;
+  align-items: center;
+  padding: 1em;
   background: none;
+  border-top: 1px solid lightgray;
+  color: white;
+
+  mat-icon {
+    color: gray;
+  }
+
+  button {
+    background: none;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  button.active-link {
+    color: lightgray;
+
+    mat-icon {
+      color: white;
+      transform: scale(1.5);
+    }
+  }
 }
