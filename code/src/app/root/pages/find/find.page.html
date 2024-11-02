@@ -7,12 +7,12 @@
     <div class="Find">
         <div class="SearchAppliances">
             <!-- Search Field-->
-            <mat-form-field class="SearchField" class="MarginLeft" (keydown.enter)="search()">
-                <input matInput placeholder="Search boxes/items" [formControl]="searchTerm"/>
+            <mat-form-field class="SearchField" class="MarginLeft">
+                <input matInput placeholder="Search..." [formControl]="searchTerm"/>
             </mat-form-field>
-            <!-- Dropdown -->
+            <!-- Dropdown filter boxes and items-->
             <mat-form-field  class="MarginRight">
-                <mat-label>boxes/items</mat-label>
+                <mat-label>Filter</mat-label>
                 <mat-select [formControl]="boxesItems" multiple>
                     @for (result of searchList; track result) {
                         <mat-option [value]="result">{{result}}</mat-option>
@@ -20,7 +20,18 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <button id="SearchButton" color="primary" mat-flat-button (click)="search()">Search</button>
+        <!-- <mat-divider class="Divider"></mat-divider>
+        <span class="MarginLeft">...or list the items of a specific box</span> -->
+        <!-- Dropdown all Boxes -> list Items-->
+        <!--<mat-form-field  class="BoxList">
+            <mat-label>Select box</mat-label>
+            <mat-select [formControl]="boxList" multiple>
+                @for (result of searchList; track result) {
+                    <mat-option [value]="result">{{boxListResult}}</mat-option>
+                }
+           </mat-select>
+        </mat-form-field> -->
+        <!-- <button id="SearchButton" color="primary" mat-flat-button>Search</button> -->
+        <mat-divider class="Divider"></mat-divider>
     </div>
-
 </body>
