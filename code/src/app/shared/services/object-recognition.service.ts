@@ -9,19 +9,44 @@ import '@tensorflow/tfjs-backend-webgl';
   providedIn: 'root',
 })
 export class ObjectRecognitionService {
-  constructor() {}
+  private mobilenetModel: mobilenet.MobileNet | undefined;
+  private cocoModel: cocoSSD.ObjectDetection | undefined;
 
-  private getCocoSSD(): Promise<cocoSSD.ObjectDetection> {
-    return cocoSSD.load({
-      base: 'mobilenet_v2',
-    });
+  /**
+   * Loads mobilenet and coco-ssd to improve performance
+   */
+  async loadModels() {
+    this.getMobilenet();
+    this.getCocoSSD();
   }
 
-  private getMobilenet(): Promise<mobilenet.MobileNet> {
-    return mobilenet.load({
-      version: 2,
-      alpha: 1, // Tunable parameter to control accuracy vs speed
-    });
+  private async getCocoSSD() {
+    if (!this.cocoModel) {
+      try {
+        this.cocoModel = await cocoSSD.load({
+          base: 'lite_mobilenet_v2',
+        });
+      } catch (error) {
+        console.error('Unable to load coco-ssd model: ', error);
+        throw error;
+      }
+    }
+    return this.cocoModel;
+  }
+
+  private async getMobilenet() {
+    if (!this.mobilenetModel) {
+      try {
+        this.mobilenetModel = await mobilenet.load({
+          version: 2,
+          alpha: 1.0, // Tunable to exchange performance for accuracy
+        });
+      } catch (error) {
+        console.error('Unable to load mobilenet model: ', error);
+        throw error;
+      }
+    }
+    return this.mobilenetModel;
   }
 
   /**
