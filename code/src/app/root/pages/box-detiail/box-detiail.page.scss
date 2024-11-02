@@ -1,0 +1,79 @@
+.PageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.TitleItems {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.IdCard {
+    height: fit-content;
+    margin-left: 16px;
+}
+
+.H2BoxName {
+    margin-left: 16px;
+}
+
+.PrintButton {
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.Margin-Left {
+    margin-left: 16px;
+}
+
+.Margin-Right {
+    margin-right: 16px;
+}
+
+.Margin-Sides {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.Divider {
+    margin-top: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.AdditionalItems {
+    display: flex;
+    margin-left: 16px;
+    margin-top: 16px;
+    flex-direction: column;
+}
+
+.H3Items {
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.IdCardContent {
+    font-size: small;
+}
+
+.Fix {
+    display: flex;
+    flex-direction: row;
+}
+
+.ItemPoints {
+   
+
+}
+
+.AllItems {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    margin-right: 16px;
+    gap: 8px;
+}

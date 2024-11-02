@@ -5,4 +5,6 @@ export enum RootRoutesEnum {
   ValiTest = 'vali-test',
   CupTest = 'cup-test',
   CalTest = 'cal-test',
+  BoxIdParam = 'boxId',
+  Box = 'box',
 }
