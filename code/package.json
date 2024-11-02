@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-docker": "ng serve --port=80 --host 0.0.0.0 --allowed-hosts smart-box.test --configuration docker"
+    "start-docker": "ng serve --port=80 --host 0.0.0.0 --allowed-hosts smart-box.test --configuration docker --poll 100"
   },
   "private": true,
   "dependencies": {
