@@ -24,7 +24,7 @@ export const routes: Routes = [
     component: BoxDetailPage,
   },
   {
-    path: RootRoutesEnum.CreateOR,
+    path: RootRoutesEnum.ORDebug,
     component: CreateObjectRecognitionComponent,
   },
   {
