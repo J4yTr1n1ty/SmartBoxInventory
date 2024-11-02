@@ -159,4 +159,18 @@ export class StateService {
       return result;
     });
   }
+  getItemsByBoxId(boxId:number):Signal<ItemModel[]>{
+    return computed(()=>{
+      const result:ItemModel[] = [];
+      const state = this._state();      
+      const itemIds = state.indexes.itemsByBoxId[boxId]??[];
+      for (let itemId of itemIds) {
+        const item:ItemModel = state.items[itemId];
+        if (item != null){
+          result.push(item);
+        }
+      }
+      return result;
+    })
+  }
 }
