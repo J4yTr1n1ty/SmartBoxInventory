@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CreateBoxDialog } from '@root/dialogs/create-box/create-box.dialog';
+import { FindPage } from '@root/pages/find/find.page';
 
 
 @Component({
   selector: 'root_cup-test-page',
   standalone: true,
-  imports: [CreateBoxDialog],
+  imports: [FindPage],
   templateUrl: './cup-test.page.html',
   styleUrl: './cup-test.page.scss',
 })
