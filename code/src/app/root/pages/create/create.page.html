@@ -1,1 +1,9 @@
-<p>create works!</p>
+<root_create-item></root_create-item>
+<div class="items">
+  @for(item of items(); track item) {
+  <root_item *ngIf="item.id as id" [itemId]="id"></root_item>
+  }
+</div>
+<button mat-fab color="accent" (click)="findClicked()">
+  <mat-icon>search</mat-icon>
+</button>

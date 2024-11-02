@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "smart-box": {
+    "easy-move": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/smart-box",
+            "outputPath": "dist/easy-move",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -77,13 +77,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "smart-box:build:production"
+              "buildTarget": "easy-move:build:production"
             },
             "docker": {
-              "buildTarget": "smart-box:build:docker"
+              "buildTarget": "easy-move:build:docker"
             },
             "development": {
-              "buildTarget": "smart-box:build:development"
+              "buildTarget": "easy-move:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "smart-box:build"
+            "buildTarget": "easy-move:build"
           }
         },
         "test": {

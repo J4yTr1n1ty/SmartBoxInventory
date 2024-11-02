@@ -1,0 +1,13 @@
+.items {
+  display: flex;
+  flex-direction: column;
+  root_item {
+    margin: 8px;
+  }
+}
+
+button {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}

@@ -17,9 +17,9 @@ export class CalTestPage {
   constructor(private _state: StateService) {
     this.items = this._state.getAllItems();
     this._state.getAllItems();
-    this._state.setItem({ name: 'ITEM', beingEdited: false, checked: false, boxId: 8, id: undefined });
-    this._state.setItem({ name: 'ITEM', beingEdited: false, checked: false, boxId: 8, id: undefined });
-    this._state.setItem({ name: 'ITEM', beingEdited: false, checked: false, boxId: 8, id: undefined });
+    this._state.setItem({ name: 'ITEM', checked: false, boxId: 8, id: undefined });
+    this._state.setItem({ name: 'ITEM', checked: false, boxId: 8, id: undefined });
+    this._state.setItem({ name: 'ITEM', checked: false, boxId: 8, id: undefined });
     this._state.setBox({ name: 'BOX', id: undefined, isFragile: true });
     this._state.setBox({ name: 'BOX', id: undefined, isFragile: true });
     this._state.setBox({ name: 'BOX', id: undefined, isFragile: true });

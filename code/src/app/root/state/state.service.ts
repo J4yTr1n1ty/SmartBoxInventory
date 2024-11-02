@@ -78,7 +78,7 @@ export class StateService {
   }
 
   public getAllItems(): Signal<ItemModel[]> {
-    return computed(() => Object.values(this._state().items));
+    return computed(() => Object.values(this._state().items).reverse());
   }
 
   public setBox(box: BoxModel) {
@@ -110,7 +110,7 @@ export class StateService {
   }
 
   public getAllBoxes(): Signal<BoxModel[]> {
-    return computed(() => Object.values(this._state().boxes));
+    return computed(() => Object.values(this._state().boxes).reverse());
   }
 
   public getLastItemId(): Signal<number> {
@@ -137,16 +137,17 @@ export class StateService {
     return computed(() => {
       const result: (ItemModel | BoxModel)[] = [];
       const state = this._state();
+      search = search.toLowerCase();
       if (entities.includes(EntityEnum.Box)) {
         for (const box of Object.values(state.boxes)) {
-          if (box.name.includes(search)) {
+          if (box.name.toLowerCase().includes(search)) {
             result.push(box);
           }
         }
       }
       if (entities.includes(EntityEnum.Item)) {
         for (const item of Object.values(state.items)) {
-          if (item.name.includes(search)) {
+          if (item.name.toLowerCase().includes(search)) {
             result.push(item);
           }
         }

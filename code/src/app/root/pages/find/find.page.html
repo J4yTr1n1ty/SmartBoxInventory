@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<head>
-
-</head>
-<body>
-    <h2 id="H2Find">Find boxes and/or items</h2>
-    <div class="Find">
-        <div class="SearchAppliances">
-            <!-- Search Field-->
-            <mat-form-field class="SearchField" class="MarginLeft">
-                <input matInput placeholder="Search..." [formControl]="searchTerm"/>
-            </mat-form-field>
-            <!-- Dropdown filter boxes and items-->
-            <mat-form-field  class="MarginRight">
-                <mat-label>Filter</mat-label>
-                <mat-select [formControl]="boxesItems" multiple>
-                    @for (result of searchList; track result) {
-                        <mat-option [value]="result">{{result}}</mat-option>
-                    }
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <!-- <mat-divider class="Divider"></mat-divider>
+<h2 id="H2Find">Find boxes and/or items</h2>
+<div class="Find">
+  <div class="SearchAppliances">
+    <!-- Search Field-->
+    <mat-form-field class="SearchField" class="MarginLeft">
+      <input matInput placeholder="Search..." [formControl]="searchTerm" />
+    </mat-form-field>
+    <!-- Dropdown filter boxes and items-->
+    <mat-form-field class="MarginRight">
+      <mat-label>Filter</mat-label>
+      <mat-select [formControl]="boxesItems" multiple>
+        @for (result of searchList; track result) {
+        <mat-option [value]="result">{{result}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <!-- <mat-divider class="Divider"></mat-divider>
         <span class="MarginLeft">...or list the items of a specific box</span> -->
-        <!-- Dropdown all Boxes -> list Items-->
-        <!--<mat-form-field  class="BoxList">
+  <!-- Dropdown all Boxes -> list Items-->
+  <!--<mat-form-field  class="BoxList">
             <mat-label>Select box</mat-label>
             <mat-select [formControl]="boxList" multiple>
                 @for (result of searchList; track result) {
@@ -31,7 +26,10 @@
                 }
            </mat-select>
         </mat-form-field> -->
-        <!-- <button id="SearchButton" color="primary" mat-flat-button>Search</button> -->
-        <mat-divider class="Divider"></mat-divider>
-    </div>
-</body>
+  <!-- <button id="SearchButton" color="primary" mat-flat-button>Search</button> -->
+  <mat-divider class="Divider"></mat-divider>
+</div>
+
+<button mat-fab color="accent" (click)="findClicked()">
+  <mat-icon>add</mat-icon>
+</button>

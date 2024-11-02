@@ -4,16 +4,16 @@ name: platform
 services:
   frontend:
     image: node:22-alpine
-    container_name: smart-box
+    container_name: easy-move
     working_dir: /app
     entrypoint: sh -c "npm ci && npm run start-docker"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.smart-box.rule=Host(`smart-box.test`)"
-      - "traefik.http.routers.smart-box.tls=true"
-      - "traefik.http.routers.smart-box.entrypoints=websecure"
-      - "traefik.http.routers.smart-box.tls.certresolver=resolver"
-      - "traefik.http.services.smart-box.loadbalancer.server.port=80"
+      - "traefik.http.routers.easy-move.rule=Host(`easy-move.test`)"
+      - "traefik.http.routers.easy-move.tls=true"
+      - "traefik.http.routers.easy-move.entrypoints=websecure"
+      - "traefik.http.routers.easy-move.tls.certresolver=resolver"
+      - "traefik.http.services.easy-move.loadbalancer.server.port=80"
     volumes:
       - ./:/app
       - /app/.angular

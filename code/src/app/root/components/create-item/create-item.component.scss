@@ -1,25 +1,23 @@
-.flex-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-    margin: 10px;
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  margin: 16px;
+  margin-bottom: 32px;
 }
 
-.inner-flex-container{
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
+h2 {
+  margin: 16px;
 }
 
-h2{
-    margin: 10px;
+.inner-flex-container {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
 }
 
-#item-list{
-    margin: 10px;
-}
-
-#add-box-button{
-    margin: 10px;
+.bottom {
+  display: flex;
+  justify-content: space-between;
 }
