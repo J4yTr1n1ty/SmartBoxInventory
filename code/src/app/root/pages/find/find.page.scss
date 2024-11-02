@@ -1,40 +1,39 @@
 .Find {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .SearchAppliances {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 
 .MarginLeft {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
 .MarginRight {
-    margin-right: 16px;
+  margin-right: 16px;
 }
 
 #SearchButton {
-    margin-left: 16px;
-    margin-right: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 #H2Find {
-    margin-left: 16px;
-    margin-right: 16px;
+  margin: 16px;
 }
 
 .BoxList {
-    margin-left: 16px;
-    margin-right: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .Divider {
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 8px;
 }
