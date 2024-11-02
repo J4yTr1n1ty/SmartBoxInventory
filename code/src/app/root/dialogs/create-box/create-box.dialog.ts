@@ -1,4 +1,4 @@
-import { Component, Signal, signal } from '@angular/core';
+import { Component, inject, Signal, signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgIf } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
+import { MatDialogClose } from '@angular/material/dialog';
 
 @Component({
   selector: 'root_create-box-dialog',
@@ -29,6 +30,7 @@ import {MatCardModule} from '@angular/material/card';
     MatTooltipModule,
     NgIf,
     MatCardModule,
+    MatDialogClose
   ],
 })
 
@@ -70,4 +72,3 @@ export class CreateBoxDialog {
     console.log(this.nameInput.value);
   }
 }
-

@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="CreateBox">
-      <h2 id="h2Create">Create a new Box</h2>
+      <h3 id="h2Create">Create a new Box</h3>
       <div class="NameAndId">
         <!-- Inputfield Box-Name -->
         <mat-form-field id="inputButton" (keydown.enter)="create()">
@@ -24,7 +24,7 @@
       <mat-checkbox id="fragileCheckbox" [formControl]="fragileInput">Fragile Content</mat-checkbox>
 
       <!-- Create Button -->
-      <button id="createButton" color="primary" mat-flat-button (click)="create()">Create Box</button>
+      <button mat-dialog-close id="createButton" color="primary" mat-flat-button (click)="create()">Create Box</button>
     </div>
   </body>
 </html>
