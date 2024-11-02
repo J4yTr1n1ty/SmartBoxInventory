@@ -1,45 +1,42 @@
-<body>
-    <h2>Add Item</h2>
-    <div class="flex-container">
-        <mat-form-field id="itemNameInput">
-            <mat-label>Item Name</mat-label>
-            <input matInput [formControl]="nameInput">
-        </mat-form-field>
-        <div class="inner-flex-container">
-            <mat-form-field>
-                <mat-label>Select Box</mat-label>
-                <mat-select [formControl]="boxInput">
-                  <mat-select-trigger>
-                    @if (boxInput.value) {
-                    <span>{{boxInput.value!.name}}</span>
-                    <strong>[{{boxInput.value!.id}}]</strong>
-                    }
-                  </mat-select-trigger>
-                  <mat-option *ngFor="let box of boxes()" class="mat-option" [value]="box">
-                    <span>{{box.name}}</span>
-                    <span>&nbsp;</span>
-                    <strong>[{{box.id}}]</strong>
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            <section>
-                <div id="add-box-button">
-                  <button mat-raised-button (click)="openDialog()">Add Box</button>
-                </div>
-            </section>
-        </div>
-
-        <section>
-            <div class="example-button-row">
-              <button mat-flat-button type="submit" color="primary">Create</button>
-            </div>
-        </section>
+<div>
+  <h2>Add Item</h2>
+  <div class="body">
+    <mat-form-field id="itemNameInput">
+      <mat-label>Item Name</mat-label>
+      <input matInput [formControl]="nameInput" />
+    </mat-form-field>
+    <div class="center">
+      <mat-form-field>
+        <mat-label>Select Box</mat-label>
+        <mat-select [formControl]="boxInput">
+          <mat-select-trigger>
+            @if (boxInput.value) {
+            <span>{{boxInput.value!.name}}</span>
+            <span>&nbsp;</span>
+            <strong>[{{boxInput.value!.id}}]</strong>
+            }
+          </mat-select-trigger>
+          @if (boxes().length == 0) {
+          <mat-option disabled selected value>-- Create a box first --</mat-option>
+          }
+          <mat-option *ngFor="let box of boxes()" class="mat-option" [value]="box">
+            <span>{{box.name}}</span>
+            <span>&nbsp;</span>
+            <strong>[{{box.id}}]</strong>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-    <mat-card id="item-list" appearance="outlined">
-        <mat-card-content>
-            @for(item of items(); track item) {
-                <root_item *ngIf="item.id as id" [itemId]="id"></root_item>
-                }
-        </mat-card-content>
-    </mat-card>    
-</body>
+
+    <div class="bottom">
+      <button mat-raised-button (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+        Add Box
+      </button>
+      <button mat-flat-button color="primary" (click)="create()" [disabled]="nameInput.invalid || boxInput.invalid">
+        <mat-icon>add</mat-icon>
+        Create
+      </button>
+    </div>
+  </div>
+</div>
