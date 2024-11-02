@@ -25,7 +25,7 @@ jobs:
         run: npm ci
         working-directory: code
       - name: Run tests
-        run: npm run test:ci
+        run: npm run test
         working-directory: code
       - name: Build
         run: npm run build
