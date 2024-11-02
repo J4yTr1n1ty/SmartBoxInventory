@@ -1,4 +1,4 @@
-import { Injectable, WritableSignal, signal } from '@angular/core';
+import { Injectable, Signal, WritableSignal, computed, effect, signal } from '@angular/core';
 import { StateModel } from './state.model';
 import { ItemModel } from '@root/shared/models/item.model';
 import { produce } from 'immer';
@@ -9,15 +9,30 @@ import { BoxModel } from '@root/shared/models/box.model';
   providedIn: 'root',
 })
 export class StateService {
-  private _state: WritableSignal<StateModel> = signal<StateModel>({
-    boxes: {},
-    items: {},
-    indexes: {
-      itemsByBoxId: {},
-    },
-  });
+  private _state: WritableSignal<StateModel>;
 
-  public SetItem(item: ItemModel) {
+  constructor() {
+    const initialStateJson = localStorage.getItem('state');
+    try {
+      const initialState: StateModel = JSON.parse(initialStateJson ?? '');
+      this._state = signal<StateModel>(initialState);
+    } catch {
+      this._state = signal<StateModel>({
+        boxes: {},
+        items: {},
+        indexes: {
+          itemsByBoxId: {},
+        },
+      });
+    }
+
+    effect(() => {
+      const stateJson = JSON.stringify(this._state());
+      localStorage.setItem('state', stateJson);
+    });
+  }
+
+  public setItem(item: ItemModel): void {
     let itemId: number | undefined = item.id;
     if (itemId == undefined) itemId = this.getLastItemId();
 
@@ -32,7 +47,7 @@ export class StateService {
     );
   }
 
-  public RemoveItem(item: ItemModel) {
+  public removeItem(item: ItemModel): void {
     let itemId: number | undefined = item.id;
     if (itemId == undefined) return;
 
@@ -46,7 +61,15 @@ export class StateService {
     );
   }
 
-  public SetBox(box: BoxModel) {
+  public getItem(itemId: number): Signal<ItemModel | undefined> {
+    return computed(() => this._state().items[itemId]);
+  }
+
+  public getAllItems(): Signal<ItemModel[]> {
+    return computed(() => Object.values(this._state().items));
+  }
+
+  public setBox(box: BoxModel) {
     let boxId: number | undefined = box.id;
     if (boxId == undefined) boxId = this.getLastBoxId();
 
@@ -58,7 +81,7 @@ export class StateService {
     );
   }
 
-  public RemoveBox(box: BoxModel) {
+  public removeBox(box: BoxModel) {
     let boxId: number | undefined = box.id;
     if (boxId == undefined) return;
 
@@ -68,6 +91,14 @@ export class StateService {
         delete draft.boxes[boxId];
       }),
     );
+  }
+
+  public getBox(boxId: number): Signal<BoxModel | undefined> {
+    return computed(() => this._state().boxes[boxId]);
+  }
+
+  public getAllBoxes(): Signal<BoxModel[]> {
+    return computed(() => Object.values(this._state().boxes));
   }
 
   public getLastItemId(): number {
