@@ -1,38 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>Create-Box</title>
-        
-    </head>
-    <body>
-        <div class="CreateBox">
-            <h2 id="h2Create">Create a new Box</h2>
-            <div class="NameAndId">
-                <!-- Inputfield Box-Name -->
-                <mat-form-field id="inputButton" (keydown.enter)="create()">
-                    <input matInput placeholder="Box Name" [formControl]=nameInput/>
-                </mat-form-field>
+  <head>
+    <title>Create-Box</title>
+  </head>
+  <body>
+    <div class="CreateBox">
+      <h2 id="h2Create">Create a new Box</h2>
+      <div class="NameAndId">
+        <!-- Inputfield Box-Name -->
+        <mat-form-field id="inputButton" (keydown.enter)="create()">
+          <input matInput placeholder="Box Name" [formControl]="nameInput" />
+        </mat-form-field>
 
-                <!-- ID Field -->
-                <mat-card id="idCard" appearance="outlined">
-                    <mat-card-content>ID</mat-card-content>
-                </mat-card>
-                
-                
-                <!-- ID info hover (autocreate) -->
-                <!-- <mat-icon svgIcon="info_outline"></mat-icon> -->
-                <button id="infoHover" mat-icon-button [matTooltip]="tooltipText" (hover)="toggleTooltip()"><mat-icon>info_outline</mat-icon></button>
-                <div *ngIf="isTooltipVisible" class="tooltip-content">
-                    {{ tooltipText }}     
-                </div>
-            </div>
+        <!-- ID Field -->
+        <mat-card id="idCard" appearance="outlined">
+          <mat-card-content>ID</mat-card-content>
+        </mat-card>
 
-            <!-- Fragile Content Checkbox -->
-            <mat-checkbox id="fragileCheckbox" [formControl]="fragileInput">Fragile Content</mat-checkbox>
+        <!-- ID info hover (autocreate) -->
+        <!-- <mat-icon svgIcon="info_outline"></mat-icon> -->
+        <button id="infoHover" mat-icon-button [matTooltip]="tooltipText" (hover)="toggleTooltip()">
+          <mat-icon>info_outline</mat-icon>
+        </button>
+        <div *ngIf="isTooltipVisible" class="tooltip-content">{{ tooltipText }}</div>
+      </div>
 
-            <!-- Create Button -->
-            <button id="createButton" mat-flat-button (click)="create()">Create Box</button>
-        </div>
-    </body>
+      <!-- Fragile Content Checkbox -->
+      <mat-checkbox id="fragileCheckbox" [formControl]="fragileInput">Fragile Content</mat-checkbox>
 
+      <!-- Create Button -->
+      <button id="createButton" color="primary" mat-flat-button (click)="create()">Create Box</button>
+    </div>
+  </body>
 </html>
