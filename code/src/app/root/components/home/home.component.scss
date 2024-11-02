@@ -1,0 +1,29 @@
+mat-card{
+    margin: 20px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+    margin: 20px;
+}
+.leftCard{
+    margin-right: 100px;
+    color: "#c6a0f6";
+}
+.rightCard{
+    margin-left: 100px;
+    color: "#8aadf4";
+}
+
+p{
+    font-size: small;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+}
+button{
+    margin: 16px;
+}

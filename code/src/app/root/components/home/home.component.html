@@ -1,1 +1,40 @@
-<p>home works!</p>
+<h2>Welcome to EasyMove</h2>
+<h6>your ultimate moving day sidekick!</h6>
+
+<mat-card appearance="outlined" class="rightCard">
+    <mat-card-content>
+        <p>
+            Say goodbye to the chaos of unpacking and digging through countless boxes. 
+            With EasyMove, you can organize your entire move effortlessly! 
+        </p>
+      </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="leftCard">
+    <mat-card-content>
+        <p>
+            Quickly create, edit, or delete items and boxes as you go. 
+            Assign items to specific boxes, find what you need with our search feature, and know exactly where everything belongs
+             – whether it's the kitchen, bedroom, or living room. 
+        </p>
+      </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="rightCard" >
+    <mat-card-content>
+        <p>
+            Whether you're prepping for a move, reorganizing, or just want to keep track of where everything is, EasyMove has got you covered. 
+        Make moving fun, stress-free, and, yes, a little more… easy! 
+        </p>
+      </mat-card-content>
+  </mat-card>
+<div class="flex-container">
+    <button mat-stroked-button>Start now</button>
+    <button mat-stroked-button (click)="showGuide()">Guide</button>
+</div>
+
+@if(!isHidden){<div>
+    guide lorem ipsum
+</div>
+} 
+  
