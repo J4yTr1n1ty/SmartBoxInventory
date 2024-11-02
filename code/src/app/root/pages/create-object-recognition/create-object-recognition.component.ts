@@ -38,6 +38,7 @@ export class CreateObjectRecognitionComponent implements OnInit {
           let startTime = Date.now();
           this._objectRecognitionService.predictWithCocoModel(this.image!).then((predictions) => {
             console.log('Coco in ' + (Date.now() - startTime) + 'ms');
+            this.renderPredictions(predictions);
             console.log(predictions);
           });
 
