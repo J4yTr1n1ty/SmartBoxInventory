@@ -1,0 +1,11 @@
+body,
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+mat-label > mat-icon {
+  margin-bottom: -2px;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "SmartBox",
+  "short_name": "smart-box",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "icons/favicon.svg",
+      "sizes": "any",
+      "purpose": "maskable any"
+    }
+  ]
+}

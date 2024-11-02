@@ -1,0 +1,26 @@
+version: "3.9"
+name: platform
+
+services:
+  frontend:
+    image: node:22-alpine
+    container_name: smart-box
+    working_dir: /app
+    entrypoint: sh -c "npm ci && npm run start-docker"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.smart-box.rule=Host(`smart-box.test`)"
+      - "traefik.http.routers.smart-box.tls=true"
+      - "traefik.http.routers.smart-box.entrypoints=websecure"
+      - "traefik.http.routers.smart-box.tls.certresolver=resolver"
+      - "traefik.http.services.smart-box.loadbalancer.server.port=80"
+    volumes:
+      - ./:/app
+      - /app/.angular
+      - /app/node_modules
+    networks:
+      - traefik
+
+networks:
+  traefik:
+    external: true

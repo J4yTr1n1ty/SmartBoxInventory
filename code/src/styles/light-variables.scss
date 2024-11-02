@@ -1,0 +1,15 @@
+$font-family: "Kanit", sans-serif;
+$brand-font-family: "Kode Mono", monospace;
+
+// https://catppuccin.com/palette
+// Latte
+.light-theme {
+  --background: #eff1f5;
+  --warn: #d20f39;
+  --success: #40a02b;
+  --primary: #1e66f5;
+  --accent: #8839ef;
+  --text: #4c4f69;
+  --font-family: #{$font-family};
+  --brand-font-family: #{$brand-font-family};
+}

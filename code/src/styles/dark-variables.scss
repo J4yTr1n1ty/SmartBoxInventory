@@ -1,0 +1,15 @@
+$font-family: "Kanit", sans-serif;
+$brand-font-family: "Kode Mono", monospace;
+
+// https://catppuccin.com/palette
+// Macchiato
+.dark-theme {
+  --background: #24273a;
+  --warn: #ed8796;
+  --success: #a6da95;
+  --primary: #8aadf4;
+  --accent: #c6a0f6;
+  --text: #cad3f5;
+  --font-family: #{$font-family};
+  --brand-font-family: #{$brand-font-family};
+}

@@ -1,0 +1,41 @@
+@use "@angular/material" as mat;
+@use "./m3-theme";
+
+* {
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--brand-font-family);
+}
+
+p,
+span,
+strong {
+  font-family: var(--font-family);
+}
+
+.http-error {
+  color: var(--warn);
+}
+
+body {
+  background-color: var(--background);
+}
+
+@include mat.core();
+
+html {
+  @include mat.core-theme(m3-theme.$dark-theme);
+  @include mat.all-component-themes(m3-theme.$dark-theme);
+}
+
+.light-theme {
+  @include mat.core-color(m3-theme.$light-theme);
+  @include mat.all-component-colors(m3-theme.$light-theme);
+}
