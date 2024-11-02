@@ -34,7 +34,7 @@ export class StateService {
 
   public setItem(item: ItemModel): void {
     let itemId: number | undefined = item.id;
-    if (itemId == undefined) itemId = this.getLastItemId() + 1;
+    if (itemId == undefined) itemId = this.getLastItemId()() + 1;
 
     item.id = itemId;
     this._state.update(
@@ -71,7 +71,7 @@ export class StateService {
 
   public setBox(box: BoxModel) {
     let boxId: number | undefined = box.id;
-    if (boxId == undefined) boxId = this.getLastBoxId() + 1;
+    if (boxId == undefined) boxId = this.getLastBoxId()() + 1;
 
     box.id = boxId;
     this._state.update(
@@ -101,19 +101,23 @@ export class StateService {
     return computed(() => Object.values(this._state().boxes));
   }
 
-  public getLastItemId(): number {
-    const keys = Object.keys(this._state().items);
+  public getLastItemId(): Signal<number> {
+    return computed(() => {
+      const keys = Object.keys(this._state().items);
 
-    if (keys.length == 0) return 0;
+      if (keys.length == 0) return 0;
 
-    return Number(keys[keys.length - 1]);
+      return Number(keys[keys.length - 1]);
+    });
   }
 
-  public getLastBoxId(): number {
-    const keys = Object.keys(this._state().boxes);
+  public getLastBoxId(): Signal<number> {
+    return computed(() => {
+      const keys = Object.keys(this._state().boxes);
 
-    if (keys.length == 0) return 0;
+      if (keys.length == 0) return 0;
 
-    return Number(keys[keys.length - 1]);
+      return Number(keys[keys.length - 1]);
+    });
   }
 }
