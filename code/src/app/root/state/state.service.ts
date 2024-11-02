@@ -34,8 +34,19 @@ export class StateService {
 
   public setItem(item: ItemModel): void {
     let itemId: number | undefined = item.id;
-    if (itemId == undefined) itemId = this.getLastItemId()() + 1;
-
+    if (itemId == undefined) {
+      itemId = this.getLastItemId()() + 1;
+    } else {
+      const oldItem: ItemModel | undefined = this._state().items[itemId];
+      if (oldItem != null)
+        this._state.update(
+          produce((draft) => {
+            let index = draft.indexes.itemsByBoxId[item.boxId] ?? [];
+            SetHelper.remove(index, item.id);
+            draft.indexes.itemsByBoxId[item.boxId] = index;
+          }),
+        );
+    }
     item.id = itemId;
     this._state.update(
       produce((draft) => {

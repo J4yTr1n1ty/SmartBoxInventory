@@ -1,1 +1,5 @@
 <p>cal test works!</p>
+
+@for(item of items(); track item) {
+<root_item *ngIf="item.id as id" [itemId]="id"></root_item>
+}
