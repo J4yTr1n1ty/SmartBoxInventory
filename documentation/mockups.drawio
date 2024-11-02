@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.186 Electron/32.2.2 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="C2-z1HSgBr2Jwl0I8O-f">
-    <mxGraphModel dx="1195" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1304" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -100,26 +100,32 @@
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-57" value="Create Item Component" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1390" y="105" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="HT6ceDYSbZp9dsdmrgKj-58" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1390" y="217.5" width="120" height="132.5" as="geometry" />
+        <mxCell id="HT6ceDYSbZp9dsdmrgKj-58" value="_" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="217.5" width="120" height="102.5" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-59" value="Box 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1390" y="249.5" width="120" height="32" as="geometry" />
+          <mxGeometry x="1390" y="217.5" width="120" height="32" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-60" value="Box 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1390" y="281.5" width="120" height="32" as="geometry" />
+          <mxGeometry x="1390" y="249.5" width="120" height="32" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-61" value="Box 3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1390" y="313.5" width="120" height="32" as="geometry" />
-        </mxCell>
-        <mxCell id="HT6ceDYSbZp9dsdmrgKj-62" value="Add new Box" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1390" y="217.5" width="120" height="32" as="geometry" />
+          <mxGeometry x="1390" y="281.5" width="120" height="32" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-63" value="Id" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="690" y="130" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-64" value="Id is immutable and generated based on the boxes number" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="690" y="60" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="HT6ceDYSbZp9dsdmrgKj-68" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="280" y="180" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HT6ceDYSbZp9dsdmrgKj-66" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="HT6ceDYSbZp9dsdmrgKj-68">
+          <mxGeometry y="5" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="HT6ceDYSbZp9dsdmrgKj-67" value="" style="line;strokeWidth=2;html=1;rotation=90;" vertex="1" parent="HT6ceDYSbZp9dsdmrgKj-68">
+          <mxGeometry y="5" width="20" height="10" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

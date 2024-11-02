@@ -3,4 +3,5 @@ export enum RootRoutesEnum {
   Find = 'find',
   ValiTest = 'vali-test',
   CupTest = 'cup-test',
+  CalTest = 'cal-test',
 }

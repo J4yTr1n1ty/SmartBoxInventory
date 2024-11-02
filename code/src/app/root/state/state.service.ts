@@ -34,7 +34,7 @@ export class StateService {
 
   public setItem(item: ItemModel): void {
     let itemId: number | undefined = item.id;
-    if (itemId == undefined) itemId = this.getLastItemId();
+    if (itemId == undefined) itemId = this.getLastItemId() + 1;
 
     item.id = itemId;
     this._state.update(
@@ -71,7 +71,7 @@ export class StateService {
 
   public setBox(box: BoxModel) {
     let boxId: number | undefined = box.id;
-    if (boxId == undefined) boxId = this.getLastBoxId();
+    if (boxId == undefined) boxId = this.getLastBoxId() + 1;
 
     box.id = boxId;
     this._state.update(
@@ -104,12 +104,16 @@ export class StateService {
   public getLastItemId(): number {
     const keys = Object.keys(this._state().items);
 
-    return Number(keys[keys.length]);
+    if (keys.length == 0) return 0;
+
+    return Number(keys[keys.length - 1]);
   }
 
   public getLastBoxId(): number {
     const keys = Object.keys(this._state().boxes);
 
-    return Number(keys[keys.length]);
+    if (keys.length == 0) return 0;
+
+    return Number(keys[keys.length - 1]);
   }
 }
