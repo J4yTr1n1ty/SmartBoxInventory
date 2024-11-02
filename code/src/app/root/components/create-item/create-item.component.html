@@ -3,16 +3,25 @@
     <div class="flex-container">
         <mat-form-field id="itemNameInput">
             <mat-label>Item Name</mat-label>
-            <input matInput>
+            <input matInput [formControl]="nameInput">
         </mat-form-field>
         <div class="inner-flex-container">
             <mat-form-field>
                 <mat-label>Select Box</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let box of boxes()"
-                                [value]="box.name">{{box.name}}</mat-option>
+                <mat-select [formControl]="boxInput">
+                  <mat-select-trigger>
+                    @if (boxInput.value) {
+                    <span>{{boxInput.value!.name}}</span>
+                    <strong>[{{boxInput.value!.id}}]</strong>
+                    }
+                  </mat-select-trigger>
+                  <mat-option *ngFor="let box of boxes()" class="mat-option" [value]="box">
+                    <span>{{box.name}}</span>
+                    <span>&nbsp;</span>
+                    <strong>[{{box.id}}]</strong>
+                  </mat-option>
                 </mat-select>
-            </mat-form-field>
+              </mat-form-field>
             <section>
                 <div id="add-box-button">
                   <button mat-raised-button (click)="openDialog()">Add Box</button>
@@ -27,6 +36,10 @@
         </section>
     </div>
     <mat-card id="item-list" appearance="outlined">
-        <mat-card-content></mat-card-content>
+        <mat-card-content>
+            @for(item of items(); track item) {
+                <root_item *ngIf="item.id as id" [itemId]="id"></root_item>
+                }
+        </mat-card-content>
     </mat-card>    
 </body>

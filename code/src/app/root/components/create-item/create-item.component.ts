@@ -9,22 +9,30 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { CreateBoxDialog } from '@root/dialogs/create-box/create-box.dialog';
 import {MatDialog} from '@angular/material/dialog';
+import { ItemComponent } from '@root/components/item/item.component';
+import { ItemModel } from '@root/shared/models/item.model';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
   selector: 'root_create-item',
   standalone: true,
-  imports: [CommonModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatCardModule],
+  imports: [CommonModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatCardModule, ItemComponent],
   templateUrl: './create-item.component.html',
   styleUrl: './create-item.component.scss',
 })
 export class CreateItemComponent {
   readonly dialog = inject(MatDialog);
   boxes: Signal<BoxModel[]>;
+  items: Signal<ItemModel[]>;
 
+  itemNameInput: FormControl<string|null>=new FormControl<string>("", Validators.required);
+  boxInput: FormControl<BoxModel|null>=new FormControl<BoxModel | null>(null, Validators.required);;
 
-  constructor(stateService: StateService) {
-    this.boxes = stateService.getAllBoxes();
+  constructor(private _state: StateService,) {
+    this.boxes = this._state.getAllBoxes();
+    this.items = this._state.getAllItems();
+    this._state.getAllItems();
   }
 
   openDialog(): void {
