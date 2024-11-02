@@ -4,6 +4,7 @@ import { ItemModel } from '@root/shared/models/item.model';
 import { produce } from 'immer';
 import { SetHelper } from '@root/shared/helpers/set.helper';
 import { BoxModel } from '@root/shared/models/box.model';
+import { EntityEnum } from '@root/shared/enums/entity.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -34,8 +35,19 @@ export class StateService {
 
   public setItem(item: ItemModel): void {
     let itemId: number | undefined = item.id;
-    if (itemId == undefined) itemId = this.getLastItemId()() + 1;
-
+    if (itemId == undefined) {
+      itemId = this.getLastItemId()() + 1;
+    } else {
+      const oldItem: ItemModel | undefined = this._state().items[itemId];
+      if (oldItem != null)
+        this._state.update(
+          produce((draft) => {
+            let index = draft.indexes.itemsByBoxId[item.boxId] ?? [];
+            SetHelper.remove(index, item.id);
+            draft.indexes.itemsByBoxId[item.boxId] = index;
+          }),
+        );
+    }
     item.id = itemId;
     this._state.update(
       produce((draft) => {
@@ -118,6 +130,29 @@ export class StateService {
       if (keys.length == 0) return 0;
 
       return Number(keys[keys.length - 1]);
+    });
+  }
+
+  public filter(search: string, entities: EntityEnum[]): Signal<(ItemModel | BoxModel)[]> {
+    return computed(() => {
+      const result: (ItemModel | BoxModel)[] = [];
+      const state = this._state();
+      if (entities.includes(EntityEnum.Box)) {
+        for (const box of Object.values(state.boxes)) {
+          if (box.name.includes(search)) {
+            result.push(box);
+          }
+        }
+      }
+      if (entities.includes(EntityEnum.Item)) {
+        for (const item of Object.values(state.items)) {
+          if (item.name.includes(search)) {
+            result.push(item);
+          }
+        }
+      }
+
+      return result;
     });
   }
 }

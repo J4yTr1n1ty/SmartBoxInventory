@@ -1,0 +1,15 @@
+mat-card-title {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  button {
+    margin-top: -8px;
+    margin-right: -8px;
+  }
+}
+
+mat-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

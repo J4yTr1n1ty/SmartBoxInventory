@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+:root {
+  // Allows icons to be centered in mat-icon button on Firefox
+  --mdc-icon-button-icon-size: inherit;
+}
+
 mat-label > mat-icon {
   margin-bottom: -2px;
 }
