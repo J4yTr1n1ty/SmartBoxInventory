@@ -27,7 +27,7 @@
   </mat-card-title>
   <mat-card-content>
     @if (!isEdit) {
-    <div class="box" *ngIf="box() != null">{{box()!.name}} <strong>{{box()!.id}}</strong></div>
+    <div class="box" *ngIf="box() != null">{{box()!.name}} <strong>[{{box()!.id}}]</strong></div>
     } @else {
     <mat-form-field>
       <mat-label>Select Box</mat-label>

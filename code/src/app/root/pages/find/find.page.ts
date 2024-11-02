@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal, WritableSignal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { ItemComponent } from '@root/components/item/item.component';
 import { RootRoutesEnum } from '@root/root-routes.enum';
 import { EntityEnum } from '@root/shared/enums/entity.enum';
 import { BoxModel } from '@root/shared/models/box.model';
@@ -18,6 +20,7 @@ import { merge } from 'rxjs';
   selector: 'root_find-page',
   standalone: true,
   imports: [
+    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
@@ -27,6 +30,7 @@ import { merge } from 'rxjs';
     ReactiveFormsModule,
     MatDividerModule,
     MatButtonModule,
+    ItemComponent,
   ],
   templateUrl: './find.page.html',
   styleUrl: './find.page.scss',
@@ -48,6 +52,7 @@ export class FindPage {
     merge(this.boxesItems.valueChanges, this.searchTerm.valueChanges).subscribe(() => {
       this.search();
     });
+    this.search();
   }
 
   search() {
@@ -59,5 +64,9 @@ export class FindPage {
 
   findClicked() {
     this._router.navigate([RootRoutesEnum.Create]);
+  }
+
+  isItem(entity: ItemModel | BoxModel): entity is ItemModel {
+    return (entity as ItemModel).boxId !== undefined;
   }
 }

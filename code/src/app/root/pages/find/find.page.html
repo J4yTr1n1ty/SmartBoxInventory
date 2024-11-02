@@ -17,6 +17,11 @@
   </div>
 </div>
 <mat-divider class="divider"></mat-divider>
+<div class="entities">
+  @for(entity of entities(); track entity) { @if (isItem(entity)) {
+  <root_item [itemId]="entity.id!"></root_item>
+  } }
+</div>
 
 <button mat-fab color="accent" (click)="findClicked()">
   <mat-icon>add</mat-icon>

@@ -20,3 +20,15 @@ button {
   right: 32px;
   bottom: 32px;
 }
+
+mat-divider {
+  margin-top: -8px;
+  margin-bottom: 32px;
+}
+
+.entities {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px;
+}
