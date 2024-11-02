@@ -1,33 +1,26 @@
-<h2 id="H2Find">Find boxes and/or items</h2>
-<div class="Find">
-  <div class="SearchAppliances">
+<h2>Find</h2>
+<div class="find">
+  <div class="search-appliances">
     <!-- Search Field-->
-    <mat-form-field class="SearchField" class="MarginLeft">
+    <mat-form-field class="search-field">
+      <mat-label>Search</mat-label>
       <input matInput placeholder="Search..." [formControl]="searchTerm" />
     </mat-form-field>
     <!-- Dropdown filter boxes and items-->
-    <mat-form-field class="MarginRight">
+    <mat-form-field>
       <mat-label>Filter</mat-label>
       <mat-select [formControl]="boxesItems" multiple>
-        @for (result of searchList; track result) {
-        <mat-option [value]="result">{{result}}</mat-option>
-        }
+        <mat-option [value]="entityEnum.Item">Item</mat-option>
+        <mat-option [value]="entityEnum.Box">Box</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
-  <!-- <mat-divider class="Divider"></mat-divider>
-        <span class="MarginLeft">...or list the items of a specific box</span> -->
-  <!-- Dropdown all Boxes -> list Items-->
-  <!--<mat-form-field  class="BoxList">
-            <mat-label>Select box</mat-label>
-            <mat-select [formControl]="boxList" multiple>
-                @for (result of searchList; track result) {
-                    <mat-option [value]="result">{{boxListResult}}</mat-option>
-                }
-           </mat-select>
-        </mat-form-field> -->
-  <!-- <button id="SearchButton" color="primary" mat-flat-button>Search</button> -->
-  <mat-divider class="Divider"></mat-divider>
+</div>
+<mat-divider class="divider"></mat-divider>
+<div class="entities">
+  @for(entity of entities(); track entity) { @if (isItem(entity)) {
+  <root_item [itemId]="entity.id!"></root_item>
+  } }
 </div>
 
 <button mat-fab color="accent" (click)="findClicked()">

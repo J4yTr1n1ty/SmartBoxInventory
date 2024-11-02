@@ -100,6 +100,9 @@ export class StateService {
     box.id = boxId;
     this._state.update(
       produce((draft) => {
+        for (const itemId of draft.indexes.itemsByBoxId[boxId] ?? []) {
+          delete draft.items[itemId];
+        }
         delete draft.boxes[boxId];
       }),
     );
@@ -140,7 +143,7 @@ export class StateService {
       search = search.toLowerCase();
       if (entities.includes(EntityEnum.Box)) {
         for (const box of Object.values(state.boxes)) {
-          if (box.name.toLowerCase().includes(search)) {
+          if (box.name.toLowerCase().includes(search) || box.id?.toString().includes(search)) {
             result.push(box);
           }
         }

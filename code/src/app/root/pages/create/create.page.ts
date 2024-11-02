@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardAvatar } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { CreateItemComponent } from '@root/components/create-item/create-item.component';
@@ -13,7 +14,7 @@ import { StateService } from '@root/state/state.service';
 @Component({
   selector: 'root_create-page',
   standalone: true,
-  imports: [CommonModule, CreateItemComponent, ItemComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, CreateItemComponent, ItemComponent, MatButtonModule, MatIconModule, MatDividerModule],
   templateUrl: './create.page.html',
   styleUrl: './create.page.scss',
 })
