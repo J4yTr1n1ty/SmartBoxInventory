@@ -35,9 +35,15 @@ export class CreateObjectRecognitionComponent implements OnInit {
       if (this.image) {
         this.image.src = reader.result as string;
         this.image.onload = () => {
+          let startTime = Date.now();
           this._objectRecognitionService.predictWithCocoModel(this.image!).then((predictions) => {
+            console.log('Coco in ' + (Date.now() - startTime) + 'ms');
             console.log(predictions);
-            this.renderPredictions(predictions);
+          });
+
+          this._objectRecognitionService.predictWithMobilenetModel(this.image!).then((predictions) => {
+            console.log('Mobilenet in ' + (Date.now() - startTime) + 'ms');
+            console.log(predictions);
           });
           this.loading = false;
         };

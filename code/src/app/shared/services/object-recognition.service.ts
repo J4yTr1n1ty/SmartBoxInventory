@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import * as cocoSSD from '@tensorflow-models/coco-ssd';
+import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-cpu';
 
 @Injectable({
@@ -9,16 +10,29 @@ import '@tensorflow/tfjs-backend-cpu';
 export class ObjectRecognitionService {
   constructor() {}
 
-  getModel(): Promise<cocoSSD.ObjectDetection> {
+  private getCocoSSD(): Promise<cocoSSD.ObjectDetection> {
     return cocoSSD.load({
       base: 'mobilenet_v2',
     });
   }
 
+  public async predictWithMobilenetModel(
+    source: ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement,
+  ): Promise<
+    Array<{
+      className: string;
+      probability: number;
+    }>
+  > {
+    const model = await mobilenet.load();
+    const predictions = await model.classify(source);
+    return predictions;
+  }
+
   public async predictWithCocoModel(
     source: ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement,
   ): Promise<cocoSSD.DetectedObject[]> {
-    const model = await this.getModel();
+    const model = await this.getCocoSSD();
     const predictions = await model.detect(source);
     return predictions;
   }
