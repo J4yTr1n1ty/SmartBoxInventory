@@ -26,15 +26,17 @@
     "@capacitor/angular": "^2.0.3",
     "@capacitor/core": "latest",
     "@capacitor/ios": "^6.1.2",
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs": "^4.22.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.7.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular/language-server": "^18.1.2",
     "@angular-devkit/build-angular": "^18.2.7",
     "@angular/cli": "^18.2.7",
     "@angular/compiler-cli": "^18.2.7",
+    "@angular/language-server": "^18.1.2",
     "@capacitor/cli": "latest",
     "@types/jasmine": "~5.1.4",
     "jasmine-core": "~5.3.0",
