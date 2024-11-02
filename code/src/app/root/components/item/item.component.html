@@ -1,28 +1,32 @@
 <body>
-    <div>
-        <mat-form-field>
+    <h2>Add Item</h2>
+    <div class="flex-container">
+        <mat-form-field id="itemNameInput">
             <mat-label>Item Name</mat-label>
             <input matInput>
         </mat-form-field>
-        <mat-form-field>
-            <mat-label>Select Box</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let box of boxes()"
-                            [value]="box.name">{{box.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <section>
-            <div class="example-button-row">
-              <button mat-raised-button>Add Box</button>
-            </div>
-        </section>
+        <div class="inner-flex-container">
+            <mat-form-field>
+                <mat-label>Select Box</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let box of boxes()"
+                                [value]="box.name">{{box.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <section>
+                <div id="add-box-button">
+                  <button mat-raised-button>Add Box</button>
+                </div>
+            </section>
+        </div>
+
         <section>
             <div class="example-button-row">
               <button mat-flat-button type="submit">Create</button>
             </div>
         </section>
     </div>
-    <mat-card appearance="outlined">
-        <mat-card-content>Simple card</mat-card-content>
+    <mat-card id="item-list" appearance="outlined">
+        <mat-card-content></mat-card-content>
     </mat-card>    
 </body>
