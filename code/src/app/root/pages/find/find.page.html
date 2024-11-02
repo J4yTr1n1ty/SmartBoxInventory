@@ -1,2 +1,26 @@
-<p>find works!</p>
-<p>gagi</p>
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <h2 id="H2Find">Find boxes and/or items</h2>
+    <div class="Find">
+        <div class="SearchAppliances">
+            <!-- Search Field-->
+            <mat-form-field class="SearchField" class="MarginLeft" (keydown.enter)="search()">
+                <input matInput placeholder="Search boxes/items" [formControl]="searchTerm"/>
+            </mat-form-field>
+            <!-- Dropdown -->
+            <mat-form-field  class="MarginRight">
+                <mat-label>boxes/items</mat-label>
+                <mat-select [formControl]="boxesItems" multiple>
+                    @for (result of searchList; track result) {
+                        <mat-option [value]="result">{{result}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button id="SearchButton" color="primary" mat-flat-button (click)="search()">Search</button>
+    </div>
+
+</body>

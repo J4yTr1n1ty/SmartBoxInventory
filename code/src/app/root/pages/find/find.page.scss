@@ -1,0 +1,29 @@
+.Find {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SearchAppliances {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.MarginLeft {
+    margin-left: 16px;
+}
+
+.MarginRight {
+    margin-right: 16px;
+}
+
+#SearchButton {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#H2Find {
+    margin-left: 16px;
+    margin-right: 16px;
+}

@@ -52,15 +52,12 @@ export class CreateBoxDialog {
     this.isTooltipVisible = !this.isTooltipVisible;
   }
 
-  
-
   create() {
     let name = this.nameInput.value;
     if (name == "") {
       name = "Box";
 
     }
-
 
     const box:BoxModel={
       id:undefined, 
