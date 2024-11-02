@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import * as cocoSSD from '@tensorflow-models/coco-ssd';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-cpu';
+import '@tensorflow/tfjs-backend-webgl';
 
 @Injectable({
   providedIn: 'root',
