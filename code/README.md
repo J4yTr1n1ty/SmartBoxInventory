@@ -1,4 +1,4 @@
-# SmartBox
+# Easy Move
 
 This is a template project containing an Angular application with PWA, Capacitor (Android & IOS) setup.
 
@@ -22,8 +22,8 @@ You can either run it using Docker or locally
 docker compose up
 ```
 
-You'll need to setup [traefik](https://traefik.io/) to reach the application under `smart-box.test`.
-You'll also need to add a hosts file entry `127.0.0.1 smart-box.test`
+You'll need to setup [traefik](https://traefik.io/) to reach the application under `easy-move.test`.
+You'll also need to add a hosts file entry `127.0.0.1 easy-move.test`
 
 or you can run it **locally**
 
