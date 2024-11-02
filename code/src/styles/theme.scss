@@ -39,3 +39,9 @@ html {
   @include mat.core-color(m3-theme.$light-theme);
   @include mat.all-component-colors(m3-theme.$light-theme);
 }
+
+button.mat-primary:not(:disabled) {
+  .mdc-button__label {
+    color: black !important;
+  }
+}
