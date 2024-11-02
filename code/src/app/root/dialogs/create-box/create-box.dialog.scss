@@ -1,0 +1,39 @@
+.CreateBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    //width: 200px;
+    //margin: auto;
+}
+
+.NameAndId {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#inputButton {
+    flex-grow: 1;
+    margin-left: 16px;
+}
+
+#createButton {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#fragileCheckbox {
+    margin-left: 16px;
+}
+
+#infoHover {
+    margin-right: 16px;
+}
+
+#idCard {
+    height: fit-content;
+}
+
+#h2Create {
+    margin-left: 16px;
+}
