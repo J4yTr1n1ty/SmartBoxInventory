@@ -143,7 +143,7 @@ export class StateService {
       search = search.toLowerCase();
       if (entities.includes(EntityEnum.Box)) {
         for (const box of Object.values(state.boxes)) {
-          if (box.name.toLowerCase().includes(search)) {
+          if (box.name.toLowerCase().includes(search) || box.id?.toString().includes(search)) {
             result.push(box);
           }
         }
