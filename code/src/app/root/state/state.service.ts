@@ -100,6 +100,9 @@ export class StateService {
     box.id = boxId;
     this._state.update(
       produce((draft) => {
+        for (const itemId of draft.indexes.itemsByBoxId[boxId] ?? []) {
+          delete draft.items[itemId];
+        }
         delete draft.boxes[boxId];
       }),
     );
