@@ -30,7 +30,7 @@ export class CreateItemComponent {
   openDialog(): void {
     this.dialog.open(CreateBoxDialog, {
       width: '500px',
-      height: '90vh'
+      height: '270px'
     });
   }
 }
