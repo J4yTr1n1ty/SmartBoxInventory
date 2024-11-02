@@ -1,7 +1,5 @@
 export interface BoxModel {
-  id: number;
+  id: number | undefined;
   name: string;
   isFragile: boolean;
-  creationDate: Date;
-  modifyDate: Date;
 }
