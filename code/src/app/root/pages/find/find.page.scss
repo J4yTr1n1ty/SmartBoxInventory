@@ -1,41 +1,18 @@
-.Find {
+.find {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 16px;
 }
 
-.SearchAppliances {
+.search-appliances {
   display: flex;
   flex-direction: row;
   gap: 8px;
 }
 
-.MarginLeft {
-  margin-left: 16px;
-}
-
-.MarginRight {
-  margin-right: 16px;
-}
-
-#SearchButton {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-#H2Find {
+h2 {
   margin: 16px;
-}
-
-.BoxList {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-.Divider {
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-bottom: 8px;
 }
 
 button {

@@ -1,18 +1,18 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDivider, MatDividerModule } from '@angular/material/divider';
-import { MatFormField, MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInput, MatInputModule } from '@angular/material/input';
-import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { RootRoutesEnum } from '@root/root-routes.enum';
 import { EntityEnum } from '@root/shared/enums/entity.enum';
 import { BoxModel } from '@root/shared/models/box.model';
 import { ItemModel } from '@root/shared/models/item.model';
 import { StateService } from '@root/state/state.service';
-import { concat, merge } from 'rxjs';
+import { merge } from 'rxjs';
 
 @Component({
   selector: 'root_find-page',
@@ -32,15 +32,14 @@ import { concat, merge } from 'rxjs';
   styleUrl: './find.page.scss',
 })
 export class FindPage {
+  protected entityEnum: typeof EntityEnum = EntityEnum;
   entities: WritableSignal<(ItemModel | BoxModel)[]> = signal([]);
 
-  boxesItems: FormControl<EntityEnum[] | null> = new FormControl<EntityEnum[] | null>(null);
+  boxesItems: FormControl<EntityEnum[] | null> = new FormControl<EntityEnum[] | null>([
+    EntityEnum.Item,
+    EntityEnum.Box,
+  ]);
   searchTerm: FormControl<string | null> = new FormControl<string>('');
-  boxList: FormControl<EntityEnum[] | null> = new FormControl<EntityEnum[] | null>(null);
-
-  result = new FormControl('');
-  boxListResult = new FormControl('');
-  searchList: EntityEnum[] = [EntityEnum.Item, EntityEnum.Box];
 
   constructor(
     private _router: Router,
@@ -52,13 +51,10 @@ export class FindPage {
   }
 
   search() {
-    //console.log("function called");
-    let term: string = this.searchTerm.value ?? '';
+    let search: string = this.searchTerm.value ?? '';
     let entities: EntityEnum[] = this.boxesItems.value ?? [];
-    //console.log(term);
-    this._stateService.filter(term, entities)();
-    this.entities.set(this._stateService.filter(term, entities)());
-    console.log(this._stateService.filter(term, entities)());
+    this._stateService.filter(search, entities)();
+    this.entities.set(this._stateService.filter(search, entities)());
   }
 
   findClicked() {
