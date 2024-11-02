@@ -1,0 +1,28 @@
+<body>
+    <div>
+        <mat-form-field>
+            <mat-label>Item Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Box</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let box of boxes()"
+                            [value]="box.name">{{box.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <section>
+            <div class="example-button-row">
+              <button mat-raised-button>Add Box</button>
+            </div>
+        </section>
+        <section>
+            <div class="example-button-row">
+              <button mat-flat-button type="submit">Create</button>
+            </div>
+        </section>
+    </div>
+    <mat-card appearance="outlined">
+        <mat-card-content>Simple card</mat-card-content>
+    </mat-card>    
+</body>
