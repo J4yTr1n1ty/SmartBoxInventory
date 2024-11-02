@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.186 Electron/32.2.2 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="C2-z1HSgBr2Jwl0I8O-f">
-    <mxGraphModel dx="1147" dy="672" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -17,7 +17,7 @@
           <mxGeometry x="150" y="180" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="550" y="120" width="290" height="210" as="geometry" />
+          <mxGeometry x="550" y="120" width="260" height="170" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-16" value="Create Item page" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="140" y="90" width="110" height="30" as="geometry" />
@@ -35,7 +35,7 @@
           <mxGeometry x="575" y="170" width="95" height="30" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-24" value="Create" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="760" y="290" width="70" height="33" as="geometry" />
+          <mxGeometry x="720" y="237" width="70" height="33" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-30" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="150" y="230" width="360" height="40" as="geometry" />
@@ -48,15 +48,6 @@
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-33" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.transmission.3_line_bus;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="500" y="237.5" width="2" height="10" as="geometry" />
-        </mxCell>
-        <mxCell id="HT6ceDYSbZp9dsdmrgKj-34" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="490" y="260" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="HT6ceDYSbZp9dsdmrgKj-35" value="Delete" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="490" y="260" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="HT6ceDYSbZp9dsdmrgKj-36" value="Edit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="490" y="300" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-37" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="880" y="127.5" width="360" height="40" as="geometry" />
@@ -123,6 +114,12 @@
         </mxCell>
         <mxCell id="HT6ceDYSbZp9dsdmrgKj-62" value="Add new Box" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1390" y="217.5" width="120" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="HT6ceDYSbZp9dsdmrgKj-63" value="Id" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="130" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HT6ceDYSbZp9dsdmrgKj-64" value="Id is immutable and generated based on the boxes number" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="60" width="100" height="55" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
