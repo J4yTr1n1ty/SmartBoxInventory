@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Signal, signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
@@ -38,8 +38,10 @@ export class CreateBoxDialog {
 
   fragileInput:FormControl<boolean|null>=new FormControl<boolean>(false)
 
+  boxID: Signal<number>
+  
   constructor(private _stateService:StateService) {
-
+    this.boxID = this._stateService.getLastBoxId();
   }
 
   tooltipText: string = 'The ID will be autocreated once you click "Create Box"';
@@ -48,11 +50,19 @@ export class CreateBoxDialog {
     this.isTooltipVisible = !this.isTooltipVisible;
   }
 
+  
+
   create() {
-    //console.log("Fetti Frau");
+    let name = this.nameInput.value;
+    if (name == "") {
+      name = "Box";
+
+    }
+
+
     const box:BoxModel={
       id:undefined, 
-      name:this.nameInput.value!, 
+      name:name!, 
       isFragile:this.fragileInput.value??false,
     }
 

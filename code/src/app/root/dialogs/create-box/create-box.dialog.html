@@ -9,20 +9,15 @@
       <div class="NameAndId">
         <!-- Inputfield Box-Name -->
         <mat-form-field id="inputButton" (keydown.enter)="create()">
-          <input matInput placeholder="Box Name" [formControl]="nameInput" />
+            <input matInput placeholder="Box" [formControl]="nameInput" />
         </mat-form-field>
 
-        <!-- ID Field -->
-        <mat-card id="idCard" appearance="outlined">
-          <mat-card-content>ID</mat-card-content>
-        </mat-card>
+        <!-- <span class="idSpan">ID:</span> -->
 
-        <!-- ID info hover (autocreate) -->
-        <!-- <mat-icon svgIcon="info_outline"></mat-icon> -->
-        <button id="infoHover" mat-icon-button [matTooltip]="tooltipText" (hover)="toggleTooltip()">
-          <mat-icon>info_outline</mat-icon>
-        </button>
-        <div *ngIf="isTooltipVisible" class="tooltip-content">{{ tooltipText }}</div>
+        <!-- ID Field -->
+        <mat-card id="idCard"  class="marginRight" appearance="outlined">
+          <mat-card-content>Nr. {{boxID()+1}}</mat-card-content>
+        </mat-card>
       </div>
 
       <!-- Fragile Content Checkbox -->
