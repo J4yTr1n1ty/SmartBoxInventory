@@ -1,5 +1,5 @@
 export enum RootRoutesEnum {
-  CreateOR = 'create-or',
+  ORDebug = 'or-debug',
   Create = 'create',
   Find = 'find',
 }

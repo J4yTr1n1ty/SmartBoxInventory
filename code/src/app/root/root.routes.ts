@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: CreatePage,
   },
   {
-    path: RootRoutesEnum.CreateOR,
+    path: RootRoutesEnum.ORDebug,
     component: CreateObjectRecognitionComponent,
   },
   {

@@ -1,86 +1,57 @@
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
-import * as cocoSSD from '@tensorflow-models/coco-ssd';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { ObjectRecognitionService } from '@shared/services/object-recognition.service';
+import { DetectedObject } from '@tensorflow-models/coco-ssd';
 
 @Component({
   selector: 'app-create-object-recognition',
   standalone: true,
-  imports: [],
+  imports: [MatInputModule, MatFormFieldModule, FormsModule, MatProgressSpinnerModule, CommonModule, MatButtonModule],
   templateUrl: './create-object-recognition.component.html',
   styleUrl: './create-object-recognition.component.scss',
-  animations: [
-    trigger('bannerTrigger', [
-      transition(':enter', [
-        query('*', [
-          style({ opacity: 0, transform: 'translateX(-50px)' }),
-          stagger(50, [animate('250ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))]),
-        ]),
-      ]),
-    ]),
-  ],
 })
-export class CreateObjectRecognitionComponent implements OnInit, OnDestroy {
+export class CreateObjectRecognitionComponent implements OnInit {
   private video: HTMLVideoElement | undefined;
+  private image: HTMLImageElement | undefined;
+
+  constructor(private _objectRecognitionService: ObjectRecognitionService) {}
 
   loading = false;
 
-  constructor(
-    private elementRef: ElementRef,
-    private router: Router,
-  ) {}
-
-  public async predictWithCocoModel() {
-    cocoSSD.load().then((model) => this.detectFrame(this.video, model));
-    console.log('predictWithCocoModel');
+  uploadImage(event: any) {
+    this.loading = true;
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (this.video) {
+        this.video.srcObject = null;
+      }
+      if (this.image) {
+        this.image.src = reader.result as string;
+        this.image.onload = () => {
+          this._objectRecognitionService.predictWithCocoModel(this.image!).then((predictions) => {
+            console.log(predictions);
+            this.renderPredictions(predictions);
+          });
+          this.loading = false;
+        };
+      }
+    };
+    reader.readAsDataURL(file);
   }
 
   ngOnInit(): void {
-    this.webcam_init();
+    this.loading = true;
+    this.image = document.getElementById('image') as HTMLImageElement;
   }
 
-  webcam_init() {
-    if (typeof document !== 'undefined') {
-      this.loading = true;
-      this.video = document.getElementById('vid') as HTMLVideoElement;
-
-      navigator.mediaDevices
-        .getUserMedia({
-          audio: false,
-          video: {
-            facingMode: 'environment',
-          },
-        })
-        .then((stream) => {
-          if (!this.video) {
-            return;
-          }
-          this.video.srcObject = stream;
-          this.loading = false;
-          this.video.onloadedmetadata = () => {
-            this.video!.play();
-            this.predictWithCocoModel();
-          };
-        });
-    }
-  }
-
-  stopWebcam() {
-    if (this.video) {
-      (<MediaStream>this.video.srcObject).getTracks().forEach((track) => track.stop());
-    }
-  }
-
-  detectFrame = (video: any, model: cocoSSD.ObjectDetection) => {
-    model.detect(video).then((predictions: any) => {
-      console.log(predictions);
-      this.renderPredictions(predictions);
-      requestAnimationFrame(() => this.detectFrame(video, model));
-    });
-  };
-
-  renderPredictions = (predictions: any) => {
+  renderPredictions = (predictions: DetectedObject[]) => {
     if (typeof document !== 'undefined') {
       const canvas = <HTMLCanvasElement>document.getElementById('canvas');
       let ctx: any;
@@ -94,7 +65,11 @@ export class CreateObjectRecognitionComponent implements OnInit, OnDestroy {
         font = '16px sans-serif';
         ctx.font = font;
         ctx.textBaseline = 'top';
-        ctx.drawImage(this.video, 0, 0, 300, 350);
+        if (this.video) {
+          ctx.drawImage(this.video, 0, 0, 300, 300);
+        } else if (this.image) {
+          ctx.drawImage(this.image, 0, 0, 300, 300);
+        }
       }
 
       predictions.forEach((prediction: any) => {
@@ -122,8 +97,4 @@ export class CreateObjectRecognitionComponent implements OnInit, OnDestroy {
       });
     }
   };
-
-  ngOnDestroy(): void {
-    this.stopWebcam();
-  }
 }
