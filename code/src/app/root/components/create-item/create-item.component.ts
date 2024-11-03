@@ -37,6 +37,7 @@ export class CreateItemComponent {
 
   nameInput: FormControl<string | null> = new FormControl<string>('', [Validators.required]);
   boxInput: FormControl<BoxModel | null> = new FormControl<BoxModel | null>(null, [Validators.required]);
+  nameClearable: boolean = false;
 
   constructor(private _state: StateService) {
     this.boxes = this._state.getAllBoxes();
@@ -67,5 +68,13 @@ export class CreateItemComponent {
     };
 
     this._state.setItem(newItem);
+    this.nameClearable = true;
+  }
+
+  nameFocused() {
+    if (this.nameClearable) {
+      this.nameInput.setValue('');
+      this.nameClearable = false;
+    }
   }
 }
