@@ -9,6 +9,7 @@ import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemComponent } from '@root/components/item/item.component';
 import { RootRoutesEnum } from '@root/root-routes.enum';
+import { BoxModel } from '@root/shared/models/box.model';
 import { ItemModel } from '@root/shared/models/item.model';
 import { StateService } from '@root/state/state.service';
 import { __runInitializers } from 'tslib';
@@ -38,12 +39,22 @@ export class BoxDetiailPage {
   FragileBoolean:boolean = false;
   Fragile:string = "no";
   items:Signal<ItemModel[]>;
+  Box:Signal<BoxModel|undefined>
 
   constructor(private _stateService:StateService,private _route:ActivatedRoute){
     const boxId = _route.snapshot.paramMap.get(RootRoutesEnum.BoxIdParam);
-
     this.items = this._stateService.getItemsByBoxId(Number(boxId));
-  }
 
+    //WATCH OUT Absolute Value defined
+    this.Box = this._stateService.getBox(19);
+    this.BoxID = this.Box()?.id??NaN;
+    this.BoxName = this.Box()?.name??"";
+    this.FragileBoolean = this.Box()?.isFragile??false;
+    if(this.FragileBoolean == true) {
+      this.Fragile = "yes";
+    } else {
+      this.Fragile = "no";
+    }
+  }
   
 }
