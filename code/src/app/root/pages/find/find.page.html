@@ -16,8 +16,14 @@
         Filter
       </mat-label>
       <mat-select [formControl]="boxesItems" multiple>
-        <mat-option [value]="entityEnum.Item">Item</mat-option>
-        <mat-option [value]="entityEnum.Box">Box</mat-option>
+        <mat-option [value]="entityEnum.Item">
+          <mat-icon>category</mat-icon>
+          Item
+        </mat-option>
+        <mat-option [value]="entityEnum.Box">
+          <mat-icon>inventory_2</mat-icon>
+          Box
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </div>

@@ -18,11 +18,6 @@
   }
 }
 
-h2,
-.id-card {
-  margin: 16px;
-}
-
 .print-button {
   margin-right: 16px;
   margin-left: 16px;
@@ -66,5 +61,15 @@ h3 {
   mat-icon,
   .material-symbols-outlined {
     margin-right: 8px;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  margin: 16px;
+  button {
+    margin: -8px;
+    margin-left: auto;
   }
 }

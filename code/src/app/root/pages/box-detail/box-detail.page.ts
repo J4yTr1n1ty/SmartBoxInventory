@@ -38,11 +38,16 @@ export class BoxDetailPage {
 
   constructor(
     private _stateService: StateService,
-    private _route: ActivatedRoute,
+    route: ActivatedRoute,
+    private _router: Router,
   ) {
-    const boxId = Number(_route.snapshot.paramMap.get(RootRoutesEnum.BoxIdParam));
+    const boxId = Number(route.snapshot.paramMap.get(RootRoutesEnum.BoxIdParam));
     this.items = this._stateService.getItemsByBoxId(boxId);
 
     this.box = this._stateService.getBox(boxId);
+  }
+
+  close() {
+    this._router.navigate([RootRoutesEnum.Find]);
   }
 }

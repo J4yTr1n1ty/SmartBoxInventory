@@ -1,13 +1,18 @@
 <div class="main">
   <div class="box" *ngIf="box() as box">
-    <h2>{{box.name}}</h2>
-    <mat-card class="id-card" appearance="outlined">
-      <mat-card-content>Nr. {{box.id}}</mat-card-content>
-    </mat-card>
+    <div class="header">
+      <h2>{{box.name}}</h2>
+      <mat-card class="id-card" appearance="outlined">
+        <mat-card-content>Nr. {{box.id}}</mat-card-content>
+      </mat-card>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
   </div>
-  <div class="header">
-    <button mat-flat-button color="primary" class="print-button">Print QR</button>
-  </div>
+  <!-- <div class="header"> -->
+  <!--   <button mat-flat-button color="primary" class="print-button">Print QR</button> -->
+  <!-- </div> -->
   <mat-divider></mat-divider>
   <div class="box-properties" *ngIf="box() as box">
     <span class="property">
