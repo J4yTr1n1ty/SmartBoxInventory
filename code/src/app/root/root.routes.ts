@@ -6,6 +6,7 @@ import { ValiTestPage } from './pages/vali-test/vali-test.page';
 import { CupTestPage } from './pages/cup-test/cup-test.page';
 import { CalTestPage } from './pages/cal-test/cal-test.page';
 import { BoxDetiailPage } from './pages/box-detiail/box-detiail.page';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
   {
     path: RootRoutesEnum.CupTest,
     component: CupTestPage,
+  },
+  {
+    path: RootRoutesEnum.Home,
+    component: HomeComponent,
   },
   {
     path: RootRoutesEnum.ValiTest,
