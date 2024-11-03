@@ -1,36 +1,27 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Create-Box</title>
-  </head>
+<div class="main">
+  <h3>Create a new Box</h3>
+  <div class="center">
+    <!-- Inputfield Box-Name -->
+    <mat-form-field (keydown.enter)="create()">
+      <input matInput placeholder="Box" [formControl]="nameInput" />
+    </mat-form-field>
 
-  <body>
-    <div class="CreateBox">
-      <h3 id="h2Create">Create a new Box</h3>
-      <div class="NameAndId">
-        <!-- Inputfield Box-Name -->
-        <mat-form-field id="inputButton" (keydown.enter)="create()">
-          <input matInput placeholder="Box" [formControl]="nameInput" />
-        </mat-form-field>
+    <!-- <span class="idSpan">ID:</span> -->
 
-        <!-- <span class="idSpan">ID:</span> -->
+    <!-- ID Field -->
+    <mat-card class="id-card" appearance="outlined">
+      <mat-card-content><span>Nr. {{boxID()+1}}</span></mat-card-content>
+    </mat-card>
+  </div>
 
-        <!-- ID Field -->
-        <mat-card id="idCard" class="marginRight" appearance="outlined">
-          <mat-card-content id="idCardContent"><span>Nr. {{boxID()+1}}</span></mat-card-content>
-        </mat-card>
-      </div>
+  <!-- Fragile Content Checkbox -->
+  <div class="properties">
+    <mat-checkbox [formControl]="fragileInput">Fragile Content</mat-checkbox>
+    <mat-form-field (keydown.enter)="create()">
+      <input matInput placeholder="Room" [formControl]="locationInput" />
+    </mat-form-field>
+  </div>
 
-      <!-- Fragile Content Checkbox -->
-      <div class="properties">
-        <mat-checkbox id="fragileCheckbox" [formControl]="fragileInput">Fragile Content</mat-checkbox>
-        <mat-form-field (keydown.enter)="create()">
-          <input matInput placeholder="Room" [formControl]="locationInput" />
-        </mat-form-field>
-      </div>
-
-      <!-- Create Button -->
-      <button mat-dialog-close id="createButton" color="primary" mat-flat-button (click)="create()">Create Box</button>
-    </div>
-  </body>
-</html>
+  <!-- Create Button -->
+  <button mat-dialog-close color="primary" mat-flat-button (click)="create()">Create Box</button>
+</div>

@@ -32,7 +32,7 @@
     @if (!isEdit) {
     <div class="box" *ngIf="box() != null">
       <mat-icon>inventory_2</mat-icon>
-      <span> {{box()!.name}} <strong>[{{box()!.id}}]</strong> </span>
+      <span class="box-name"> {{box()!.name}} <strong>[{{box()!.id}}]</strong> </span>
     </div>
     } @else {
     <mat-form-field>

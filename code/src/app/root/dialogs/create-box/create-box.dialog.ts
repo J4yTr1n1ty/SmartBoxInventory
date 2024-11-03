@@ -58,7 +58,7 @@ export class CreateBoxDialog {
 
     let location = this.locationInput.value;
     if (location == '' || location == null) {
-      name = 'Room';
+      location = 'Room';
     }
 
     const box: BoxModel = {

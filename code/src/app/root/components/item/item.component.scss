@@ -24,3 +24,8 @@ mat-card-content {
     margin-right: 8px;
   }
 }
+
+.box-name,
+.item-name {
+  line-break: anywhere;
+}
