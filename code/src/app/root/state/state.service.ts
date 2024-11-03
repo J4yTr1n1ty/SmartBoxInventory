@@ -97,7 +97,6 @@ export class StateService {
     let boxId: number | undefined = box.id;
     if (boxId == undefined) return;
 
-    box.id = boxId;
     this._state.update(
       produce((draft) => {
         for (const itemId of draft.indexes.itemsByBoxId[boxId] ?? []) {

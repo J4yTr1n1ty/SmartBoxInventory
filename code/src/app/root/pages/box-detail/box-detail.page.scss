@@ -77,3 +77,21 @@ h3 {
     margin-left: auto;
   }
 }
+
+.edit-properties {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px;
+  mat-checkbox {
+    margin-bottom: 16px;
+  }
+  mat-form-field {
+    max-width: 160px;
+  }
+}
+
+.save-button {
+  margin-left: auto;
+  margin-right: 16px;
+}
