@@ -27,34 +27,35 @@ import { __runInitializers } from 'tslib';
     MatButtonModule,
     CommonModule,
     ItemComponent,
-
   ],
-  templateUrl: './box-detiail.page.html',
-  styleUrl: './box-detiail.page.scss'
+  templateUrl: './box-detail.page.html',
+  styleUrl: './box-detail.page.scss',
 })
-export class BoxDetiailPage {
-  BoxName:string = "Default";
-  BoxID:number = 0;
-  Location:string = "Room";
-  FragileBoolean:boolean = false;
-  Fragile:string = "no";
-  items:Signal<ItemModel[]>;
-  Box:Signal<BoxModel|undefined>
+export class BoxDetailPage {
+  BoxName: string = 'Default';
+  BoxID: number = 0;
+  Location: string = 'Room';
+  FragileBoolean: boolean = false;
+  Fragile: string = 'no';
+  items: Signal<ItemModel[]>;
+  Box: Signal<BoxModel | undefined>;
 
-  constructor(private _stateService:StateService,private _route:ActivatedRoute){
+  constructor(
+    private _stateService: StateService,
+    private _route: ActivatedRoute,
+  ) {
     const boxId = _route.snapshot.paramMap.get(RootRoutesEnum.BoxIdParam);
     this.items = this._stateService.getItemsByBoxId(Number(boxId));
 
     //WATCH OUT Absolute Value defined
     this.Box = this._stateService.getBox(19);
-    this.BoxID = this.Box()?.id??NaN;
-    this.BoxName = this.Box()?.name??"";
-    this.FragileBoolean = this.Box()?.isFragile??false;
-    if(this.FragileBoolean == true) {
-      this.Fragile = "yes";
+    this.BoxID = this.Box()?.id ?? NaN;
+    this.BoxName = this.Box()?.name ?? '';
+    this.FragileBoolean = this.Box()?.isFragile ?? false;
+    if (this.FragileBoolean == true) {
+      this.Fragile = 'yes';
     } else {
-      this.Fragile = "no";
+      this.Fragile = 'no';
     }
   }
-  
 }

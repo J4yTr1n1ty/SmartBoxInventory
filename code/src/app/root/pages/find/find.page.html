@@ -20,6 +20,8 @@
 <div class="entities">
   @for(entity of entities(); track entity) { @if (isItem(entity)) {
   <root_item [itemId]="entity.id!"></root_item>
+  } @else {
+  <root_box [boxId]="entity.id!"></root_box>
   } }
 </div>
 

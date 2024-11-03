@@ -1,1 +1,8 @@
-<div class="body"></div>
+<mat-card *ngIf="box() as box" (click)="clicked()">
+  <mat-card-title>
+    <div class="box-name">{{box.name}} <strong>[{{box.id}}]</strong></div>
+    <div class="fragile-indicator">
+      <span *ngIf="box.isFragile" class="material-symbols-outlined">destruction</span>
+    </div>
+  </mat-card-title>
+</mat-card>

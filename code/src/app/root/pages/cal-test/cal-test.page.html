@@ -1,5 +1,9 @@
 <p>cal test works!</p>
 
-@for(item of items(); track item) {
-<root_item *ngIf="item.id as id" [itemId]="id"></root_item>
+<!-- @for(item of items(); track item) { -->
+<!-- <root_item *ngIf="item.id as id" [itemId]="id"></root_item> -->
+<!-- } -->
+
+@for(box of boxes(); track box) {
+<root_box *ngIf="box.id as id" [boxId]="id"></root_box>
 }

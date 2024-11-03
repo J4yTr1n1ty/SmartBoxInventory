@@ -1,0 +1,11 @@
+mat-card {
+  cursor: pointer;
+  &:hover {
+    background-color: var(--mdc-outlined-card-outline-color);
+  }
+  mat-card-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+  }
+}

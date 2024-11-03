@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { BoxComponent } from '@root/components/box/box.component';
 import { ItemComponent } from '@root/components/item/item.component';
 import { RootRoutesEnum } from '@root/root-routes.enum';
 import { EntityEnum } from '@root/shared/enums/entity.enum';
@@ -31,6 +32,7 @@ import { merge } from 'rxjs';
     MatDividerModule,
     MatButtonModule,
     ItemComponent,
+    BoxComponent,
   ],
   templateUrl: './find.page.html',
   styleUrl: './find.page.scss',

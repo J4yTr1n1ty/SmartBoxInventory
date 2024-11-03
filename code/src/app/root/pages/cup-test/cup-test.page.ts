@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { BoxDetiailPage } from '@root/pages/box-detiail/box-detiail.page';
-
+import { BoxDetailPage } from '@root/pages/box-detail/box-detail.page';
 
 @Component({
   selector: 'root_cup-test-page',
   standalone: true,
-  imports: [
-    BoxDetiailPage,
-  ],
+  imports: [BoxDetailPage],
   templateUrl: './cup-test.page.html',
   styleUrl: './cup-test.page.scss',
 })

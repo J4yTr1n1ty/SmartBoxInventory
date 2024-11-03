@@ -5,7 +5,7 @@ import { FindPage } from './pages/find/find.page';
 import { ValiTestPage } from './pages/vali-test/vali-test.page';
 import { CupTestPage } from './pages/cup-test/cup-test.page';
 import { CalTestPage } from './pages/cal-test/cal-test.page';
-import { BoxDetiailPage } from './pages/box-detiail/box-detiail.page';
+import { BoxDetailPage } from './pages/box-detail/box-detail.page';
 
 export const routes: Routes = [
   {
@@ -29,8 +29,8 @@ export const routes: Routes = [
     component: CreatePage,
   },
   {
-  path: RootRoutesEnum.Box + "/:" + RootRoutesEnum.BoxIdParam,
-  component: BoxDetiailPage,
+    path: RootRoutesEnum.Box + '/:' + RootRoutesEnum.BoxIdParam,
+    component: BoxDetailPage,
   },
   {
     path: '**',
