@@ -2,12 +2,18 @@
   <h2>Add Item</h2>
   <div class="body">
     <mat-form-field id="itemNameInput">
-      <mat-label>Item Name</mat-label>
+      <mat-label>
+        <mat-icon>category</mat-icon>
+        Item Name
+      </mat-label>
       <input matInput [formControl]="nameInput" (focus)="nameFocused()" />
     </mat-form-field>
     <div class="center">
       <mat-form-field>
-        <mat-label>Select Box</mat-label>
+        <mat-label>
+          <mat-icon>inventory_2</mat-icon>
+          Select Box
+        </mat-label>
         <mat-select [formControl]="boxInput">
           <mat-select-trigger>
             @if (boxInput.value) {

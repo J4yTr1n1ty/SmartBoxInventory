@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, Signal } from '@angular/core';
+import { Component, Input, OnInit, Signal, computed } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -18,6 +18,7 @@ export class BoxComponent implements OnInit {
   @Input({ required: true })
   boxId!: number;
   box!: Signal<BoxModel | undefined>;
+  itemCount!: Signal<number>;
 
   constructor(
     private _state: StateService,
@@ -26,6 +27,7 @@ export class BoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.box = this._state.getBox(this.boxId);
+    this.itemCount = computed(() => this._state.getItemsByBoxId(this.boxId)().length);
   }
 
   clicked() {

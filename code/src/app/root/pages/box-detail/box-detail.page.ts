@@ -32,30 +32,17 @@ import { __runInitializers } from 'tslib';
   styleUrl: './box-detail.page.scss',
 })
 export class BoxDetailPage {
-  BoxName: string = 'Default';
-  BoxID: number = 0;
-  Location: string = 'Room';
-  FragileBoolean: boolean = false;
-  Fragile: string = 'no';
+  location: string = 'Room';
   items: Signal<ItemModel[]>;
-  Box: Signal<BoxModel | undefined>;
+  box: Signal<BoxModel | undefined>;
 
   constructor(
     private _stateService: StateService,
     private _route: ActivatedRoute,
   ) {
-    const boxId = _route.snapshot.paramMap.get(RootRoutesEnum.BoxIdParam);
-    this.items = this._stateService.getItemsByBoxId(Number(boxId));
+    const boxId = Number(_route.snapshot.paramMap.get(RootRoutesEnum.BoxIdParam));
+    this.items = this._stateService.getItemsByBoxId(boxId);
 
-    //WATCH OUT Absolute Value defined
-    this.Box = this._stateService.getBox(19);
-    this.BoxID = this.Box()?.id ?? NaN;
-    this.BoxName = this.Box()?.name ?? '';
-    this.FragileBoolean = this.Box()?.isFragile ?? false;
-    if (this.FragileBoolean == true) {
-      this.Fragile = 'yes';
-    } else {
-      this.Fragile = 'no';
-    }
+    this.box = this._stateService.getBox(boxId);
   }
 }

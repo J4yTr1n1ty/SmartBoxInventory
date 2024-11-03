@@ -8,4 +8,15 @@ mat-card {
     justify-content: space-between;
     margin: 16px;
   }
+  mat-card-content {
+    display: flex;
+    justify-content: space-between;
+    span {
+      mat-icon {
+        margin-right: 8px;
+      }
+      display: flex;
+      align-items: center;
+    }
+  }
 }

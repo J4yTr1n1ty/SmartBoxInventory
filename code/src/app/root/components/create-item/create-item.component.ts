@@ -35,7 +35,7 @@ export class CreateItemComponent {
   readonly dialog = inject(MatDialog);
   boxes: Signal<BoxModel[]>;
 
-  nameInput: FormControl<string | null> = new FormControl<string>('', [Validators.required]);
+  nameInput: FormControl<string | null> = new FormControl<string>('New Item', [Validators.required]);
   boxInput: FormControl<BoxModel | null> = new FormControl<BoxModel | null>(null, [Validators.required]);
   nameClearable: boolean = false;
 
@@ -50,7 +50,7 @@ export class CreateItemComponent {
   openDialog(): void {
     this.dialog.open(CreateBoxDialog, {
       width: '500px',
-      height: '270px',
+      height: '296px',
     });
   }
 

@@ -5,4 +5,14 @@
       <span *ngIf="box.isFragile" class="material-symbols-outlined">destruction</span>
     </div>
   </mat-card-title>
+  <mat-card-content>
+    <span>
+      <mat-icon>home</mat-icon>
+      <span>Location: {{box.location}}</span>
+    </span>
+    <span>
+      <mat-icon>category</mat-icon>
+      <span>Items: {{itemCount()}}</span>
+    </span>
+  </mat-card-content>
 </mat-card>
