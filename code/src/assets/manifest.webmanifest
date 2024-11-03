@@ -1,8 +1,8 @@
 {
   "name": "Easy Move",
-  "short_name": "easy-move",
+  "short_name": "Easy Move",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "background_color": "#24273a",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
@@ -11,6 +11,29 @@
       "src": "icons/favicon.svg",
       "sizes": "any",
       "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/add-item-page.png",
+      "sizes": "410x914",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Add Item Page"
+    },
+    {
+      "src": "/assets/screenshots/find-page.png",
+      "sizes": "410x914",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Find Page"
+    },
+    {
+      "src": "/assets/screenshots/box-detail-page.png",
+      "sizes": "410x914",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Detail Page for a Box"
     }
   ]
 }

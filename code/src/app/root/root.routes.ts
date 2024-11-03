@@ -34,8 +34,8 @@ export const routes: Routes = [
     component: CreatePage,
   },
   {
-  path: RootRoutesEnum.Box + "/:" + RootRoutesEnum.BoxIdParam,
-  component: BoxDetiailPage,
+    path: RootRoutesEnum.Box + '/:' + RootRoutesEnum.BoxIdParam,
+    component: BoxDetailPage,
   },
   {
     path: '**',

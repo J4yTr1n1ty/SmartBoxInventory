@@ -3,25 +3,31 @@
   <head>
     <title>Create-Box</title>
   </head>
+
   <body>
     <div class="CreateBox">
       <h3 id="h2Create">Create a new Box</h3>
       <div class="NameAndId">
         <!-- Inputfield Box-Name -->
         <mat-form-field id="inputButton" (keydown.enter)="create()">
-            <input matInput placeholder="Box" [formControl]="nameInput" />
+          <input matInput placeholder="Box" [formControl]="nameInput" />
         </mat-form-field>
 
         <!-- <span class="idSpan">ID:</span> -->
 
         <!-- ID Field -->
-        <mat-card id="idCard"  class="marginRight" appearance="outlined">
+        <mat-card id="idCard" class="marginRight" appearance="outlined">
           <mat-card-content id="idCardContent"><span>Nr. {{boxID()+1}}</span></mat-card-content>
         </mat-card>
       </div>
 
       <!-- Fragile Content Checkbox -->
-      <mat-checkbox id="fragileCheckbox" [formControl]="fragileInput">Fragile Content</mat-checkbox>
+      <div class="properties">
+        <mat-checkbox id="fragileCheckbox" [formControl]="fragileInput">Fragile Content</mat-checkbox>
+        <mat-form-field (keydown.enter)="create()">
+          <input matInput placeholder="Room" [formControl]="locationInput" />
+        </mat-form-field>
+      </div>
 
       <!-- Create Button -->
       <button mat-dialog-close id="createButton" color="primary" mat-flat-button (click)="create()">Create Box</button>

@@ -35,8 +35,9 @@ export class CreateItemComponent {
   readonly dialog = inject(MatDialog);
   boxes: Signal<BoxModel[]>;
 
-  nameInput: FormControl<string | null> = new FormControl<string>('', [Validators.required]);
+  nameInput: FormControl<string | null> = new FormControl<string>('New Item', [Validators.required]);
   boxInput: FormControl<BoxModel | null> = new FormControl<BoxModel | null>(null, [Validators.required]);
+  nameClearable: boolean = true;
 
   constructor(private _state: StateService) {
     this.boxes = this._state.getAllBoxes();
@@ -48,8 +49,11 @@ export class CreateItemComponent {
 
   openDialog(): void {
     this.dialog.open(CreateBoxDialog, {
+      position: {
+        top: '16px',
+      },
       width: '500px',
-      height: '270px',
+      height: '296px',
     });
   }
 
@@ -67,5 +71,13 @@ export class CreateItemComponent {
     };
 
     this._state.setItem(newItem);
+    this.nameClearable = true;
+  }
+
+  nameFocused() {
+    if (this.nameClearable) {
+      this.nameInput.setValue('');
+      this.nameClearable = false;
+    }
   }
 }

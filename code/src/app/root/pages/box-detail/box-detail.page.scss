@@ -1,0 +1,75 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.id-card {
+  height: fit-content;
+  margin-left: 16px;
+  mat-card-content {
+    font-size: small;
+  }
+}
+
+.print-button {
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+mat-divider {
+  margin-top: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.box-properties {
+  display: flex;
+  margin-left: 16px;
+  margin-top: 16px;
+  gap: 8px;
+  flex-direction: column;
+}
+
+h3 {
+  margin-left: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  margin-right: 16px;
+  gap: 8px;
+}
+
+.property {
+  display: flex;
+  mat-icon,
+  .material-symbols-outlined {
+    margin-right: 8px;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  margin: 16px;
+  button {
+    margin: -8px;
+    margin-left: auto;
+  }
+}

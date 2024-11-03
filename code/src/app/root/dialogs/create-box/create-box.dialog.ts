@@ -1,16 +1,16 @@
-import { Component, inject, Signal, signal } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import { StateService } from '@root/state/state.service';
 import { BoxModel } from '@root/shared/models/box.model';
-import { FormControl, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatIconModule} from '@angular/material/icon';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgIf } from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialogClose } from '@angular/material/dialog';
 
 @Component({
@@ -30,19 +30,17 @@ import { MatDialogClose } from '@angular/material/dialog';
     MatTooltipModule,
     NgIf,
     MatCardModule,
-    MatDialogClose
+    MatDialogClose,
   ],
 })
-
-
 export class CreateBoxDialog {
-  nameInput:FormControl<string|null>=new FormControl<string>("", Validators.required);
+  nameInput: FormControl<string | null> = new FormControl<string>('', Validators.required);
+  fragileInput: FormControl<boolean | null> = new FormControl<boolean>(false);
+  locationInput: FormControl<string | null> = new FormControl<string>('', Validators.required);
 
-  fragileInput:FormControl<boolean|null>=new FormControl<boolean>(false)
+  boxID: Signal<number>;
 
-  boxID: Signal<number>
-  
-  constructor(private _stateService:StateService) {
+  constructor(private _stateService: StateService) {
     this.boxID = this._stateService.getLastBoxId();
   }
 
@@ -54,18 +52,22 @@ export class CreateBoxDialog {
 
   create() {
     let name = this.nameInput.value;
-    if (name == "") {
-      name = "Box";
-
+    if (name == '' || name == null) {
+      name = 'Box';
     }
 
-    const box:BoxModel={
-      id:undefined, 
-      name:name!, 
-      isFragile:this.fragileInput.value??false,
+    let location = this.locationInput.value;
+    if (location == '' || location == null) {
+      name = 'Room';
     }
+
+    const box: BoxModel = {
+      id: undefined,
+      name: name!,
+      location: location!,
+      isFragile: this.fragileInput.value ?? false,
+    };
 
     this._stateService.setBox(box);
-    console.log(this.nameInput.value);
   }
 }

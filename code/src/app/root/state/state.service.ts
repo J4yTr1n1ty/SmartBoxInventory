@@ -143,7 +143,11 @@ export class StateService {
       search = search.toLowerCase();
       if (entities.includes(EntityEnum.Box)) {
         for (const box of Object.values(state.boxes)) {
-          if (box.name.toLowerCase().includes(search) || box.id?.toString().includes(search)) {
+          if (
+            box.name.toLowerCase().includes(search) ||
+            box.id?.toString().includes(search) ||
+            box.location.toLowerCase().includes(search)
+          ) {
             result.push(box);
           }
         }
@@ -159,18 +163,18 @@ export class StateService {
       return result;
     });
   }
-  getItemsByBoxId(boxId:number):Signal<ItemModel[]>{
-    return computed(()=>{
-      const result:ItemModel[] = [];
-      const state = this._state();      
-      const itemIds = state.indexes.itemsByBoxId[boxId]??[];
+  getItemsByBoxId(boxId: number): Signal<ItemModel[]> {
+    return computed(() => {
+      const result: ItemModel[] = [];
+      const state = this._state();
+      const itemIds = state.indexes.itemsByBoxId[boxId] ?? [];
       for (let itemId of itemIds) {
-        const item:ItemModel = state.items[itemId];
-        if (item != null){
+        const item: ItemModel = state.items[itemId];
+        if (item != null) {
           result.push(item);
         }
       }
       return result;
-    })
+    });
   }
 }

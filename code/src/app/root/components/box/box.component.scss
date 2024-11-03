@@ -1,0 +1,22 @@
+mat-card {
+  cursor: pointer;
+  &:hover {
+    background-color: var(--mdc-outlined-card-outline-color);
+  }
+  mat-card-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+  }
+  mat-card-content {
+    display: flex;
+    justify-content: space-between;
+    span {
+      mat-icon {
+        margin-right: 8px;
+      }
+      display: flex;
+      align-items: center;
+    }
+  }
+}
