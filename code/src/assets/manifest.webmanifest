@@ -1,8 +1,8 @@
 {
   "name": "Easy Move",
-  "short_name": "easy-move",
+  "short_name": "Easy Move",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
+  "background_color": "#24273a",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
