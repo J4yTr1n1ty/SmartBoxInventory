@@ -4,6 +4,7 @@ import * as cocoSSD from '@tensorflow-models/coco-ssd';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs-backend-cpu';
 import '@tensorflow/tfjs-backend-webgl';
+import * as tf from '@tensorflow/tfjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,11 @@ import '@tensorflow/tfjs-backend-webgl';
 export class ObjectRecognitionService {
   private mobilenetModel: mobilenet.MobileNet | undefined;
   private cocoModel: cocoSSD.ObjectDetection | undefined;
+
+  constructor() {
+    // explicitly set backend
+    tf.setBackend('webgl').catch(() => tf.setBackend('cpu'));
+  }
 
   /**
    * Loads mobilenet and coco-ssd to improve performance

@@ -3,4 +3,5 @@ export interface ItemModel {
   name: string;
   boxId: number;
   checked: boolean;
+  image?: string | null;
 }

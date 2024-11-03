@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardAvatar } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -31,7 +30,7 @@ export class CreatePage {
   findClicked() {
     this._router.navigate([RootRoutesEnum.Find]);
   }
-  
+
   findInfo() {
     this._router.navigate([RootRoutesEnum.Home]);
   }
