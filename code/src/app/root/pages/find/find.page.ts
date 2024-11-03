@@ -68,9 +68,9 @@ export class FindPage {
     this._router.navigate([RootRoutesEnum.Create]);
   }
 
-  /*findInfo() {
+  findInfo() {
     this._router.navigate([RootRoutesEnum.Home]);
-  }*/
+  }
 
   isItem(entity: ItemModel | BoxModel): entity is ItemModel {
     return (entity as ItemModel).boxId !== undefined;
