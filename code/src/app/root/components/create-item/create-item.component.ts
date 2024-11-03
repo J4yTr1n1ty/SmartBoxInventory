@@ -50,7 +50,7 @@ export class CreateItemComponent {
   openDialog(): void {
     this.dialog.open(CreateBoxDialog, {
       position: {
-        top: '16px',
+        top: '48px',
       },
       width: '500px',
       height: '296px',

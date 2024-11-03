@@ -5,8 +5,8 @@ import { FindPage } from './pages/find/find.page';
 import { ValiTestPage } from './pages/vali-test/vali-test.page';
 import { CupTestPage } from './pages/cup-test/cup-test.page';
 import { CalTestPage } from './pages/cal-test/cal-test.page';
-import { BoxDetiailPage } from './pages/box-detiail/box-detiail.page';
-import { HomeComponent } from './components/home/home.component';
+import { BoxDetailPage } from './pages/box-detail/box-detail.page';
+import { HomePage } from './pages/home/home.page';
 
 export const routes: Routes = [
   {
@@ -19,7 +19,7 @@ export const routes: Routes = [
   },
   {
     path: RootRoutesEnum.Home,
-    component: HomeComponent,
+    component: HomePage,
   },
   {
     path: RootRoutesEnum.ValiTest,
@@ -39,6 +39,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: `${RootRoutesEnum.Create}`,
+    redirectTo: `${RootRoutesEnum.Home}`,
   },
 ];
