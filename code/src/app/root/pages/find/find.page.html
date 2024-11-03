@@ -1,4 +1,9 @@
-<h2>Find</h2>
+<div class="header">
+  <h2>Find</h2>
+  <button mat-icon-button (click)="findInfo()">
+    <mat-icon>info_outlined</mat-icon>
+  </button>
+</div>
 <div class="find">
   <div class="search-appliances">
     <!-- Search Field-->
@@ -37,6 +42,6 @@
   } }
 </div>
 
-<button mat-fab color="accent" (click)="findClicked()">
+<button mat-fab color="accent" class="fab" (click)="findClicked()">
   <mat-icon>category</mat-icon>
 </button>

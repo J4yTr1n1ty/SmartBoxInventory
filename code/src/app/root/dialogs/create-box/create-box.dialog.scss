@@ -1,66 +1,48 @@
-.CreateBox {
+:host {
+  background-color: var(--background);
+}
+
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //width: 200px;
-  //margin: auto;
+  padding: 16px;
+  background-color: var(--background);
 }
 
-.NameAndId {
+.center {
   display: flex;
   flex-direction: row;
   gap: 8px;
+  mat-form-field {
+    flex-grow: 1;
+  }
 }
 
-#inputButton {
-  flex-grow: 1;
-  margin-left: 16px;
+h3 {
+  margin: 0;
+  margin-bottom: 16px;
 }
 
-#createButton {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-#fragileCheckbox {
-  margin-left: 16px;
-}
-
-#infoHover {
-  margin-right: 16px;
-}
-
-#idCard {
+.id-card {
   height: fit-content;
+  mat-card-content {
+    font-size: small;
+  }
 }
 
-#idCardContent {
-  font-size: small;
-}
-
-#h2Create {
-  margin-left: 16px;
-  margin-top: 16px;
-}
-
-.marginRight {
-  margin-right: 16px;
-}
-
-.idSpan {
-  text-align: center;
-  vertical-align: middle;
-  flex-grow: 1;
+mat-option {
+  line-break: anywhere;
 }
 
 .properties {
   display: flex;
-  gap: 16px;
   justify-content: space-between;
   align-items: center;
+  mat-checkbox {
+    margin-bottom: 16px;
+  }
   mat-form-field {
     max-width: 160px;
-    margin-top: 16px;
-    margin-right: 16px;
   }
 }

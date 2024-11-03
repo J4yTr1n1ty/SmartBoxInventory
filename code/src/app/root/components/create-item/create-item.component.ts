@@ -13,6 +13,8 @@ import { ItemComponent } from '@root/components/item/item.component';
 import { ItemModel } from '@root/shared/models/item.model';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { RootRoutesEnum } from '@root/root-routes.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'root_create-item',
@@ -39,22 +41,30 @@ export class CreateItemComponent {
   boxInput: FormControl<BoxModel | null> = new FormControl<BoxModel | null>(null, [Validators.required]);
   nameClearable: boolean = true;
 
-  constructor(private _state: StateService) {
+  constructor(
+    private _state: StateService,
+    private _router: Router
+  ) {
     this.boxes = this._state.getAllBoxes();
     effect(() => {
       const boxes = this.boxes();
       this.boxInput.setValue(boxes[0]);
     });
+    
   }
 
   openDialog(): void {
     this.dialog.open(CreateBoxDialog, {
       position: {
-        top: '16px',
+        top: '48px',
       },
       width: '500px',
       height: '296px',
     });
+  }
+
+  findInfo() {
+    this._router.navigate([RootRoutesEnum.Home]);
   }
 
   create() {

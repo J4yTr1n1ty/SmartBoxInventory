@@ -11,11 +11,7 @@
   gap: 8px;
 }
 
-h2 {
-  margin: 16px;
-}
-
-button {
+.fab {
   position: fixed;
   right: 32px;
   bottom: 32px;
@@ -30,5 +26,18 @@ mat-divider {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 16px;
+}
+
+.header {
+  display: flex;
+  margin: 16px;
+  button {
+    margin-left: auto;
+    margin-right: -16px;
+  }
+}
+
+h2 {
   margin: 16px;
 }

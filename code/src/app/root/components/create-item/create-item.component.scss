@@ -20,3 +20,16 @@ h2 {
   display: flex;
   justify-content: space-between;
 }
+
+.header {
+  display: flex;
+  margin: 16px;
+  button {
+    margin-left: auto;
+    margin-right: -16px;
+  }
+}
+
+mat-option {
+  line-break: anywhere;
+}

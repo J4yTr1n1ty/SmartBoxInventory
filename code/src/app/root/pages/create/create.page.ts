@@ -31,4 +31,8 @@ export class CreatePage {
   findClicked() {
     this._router.navigate([RootRoutesEnum.Find]);
   }
+  
+  findInfo() {
+    this._router.navigate([RootRoutesEnum.Home]);
+  }
 }

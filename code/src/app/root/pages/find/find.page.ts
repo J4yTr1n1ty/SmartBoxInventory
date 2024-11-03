@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal, WritableSignal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -31,8 +31,11 @@ import { merge } from 'rxjs';
     ReactiveFormsModule,
     MatDividerModule,
     MatButtonModule,
+    MatIconButton,
     ItemComponent,
     BoxComponent,
+    MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './find.page.html',
   styleUrl: './find.page.scss',
@@ -66,6 +69,10 @@ export class FindPage {
 
   findClicked() {
     this._router.navigate([RootRoutesEnum.Create]);
+  }
+
+  findInfo() {
+    this._router.navigate([RootRoutesEnum.Home]);
   }
 
   isItem(entity: ItemModel | BoxModel): entity is ItemModel {
