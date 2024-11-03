@@ -1,0 +1,9 @@
+<div id="realtime-camera">
+  <input type="file" accept="image/*" capture="environment" (change)="uploadImage($event)" />
+  <br />
+  <canvas id="canvas"></canvas>
+  <img id="image" hidden width="300" height="300" />
+  <div class="loading" *ngIf="loading">
+    <h1>No image provided</h1>
+  </div>
+</div>

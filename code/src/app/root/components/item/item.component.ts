@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Signal, WritableSignal, computed, signal } from '@angular/core';
+import { Component, Input, Signal, WritableSignal, computed, inject, signal } from '@angular/core';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,6 +11,8 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { ImageDialog } from '@root/dialogs/image/image.dialog';
 
 @Component({
   selector: 'root_item',
@@ -67,9 +69,21 @@ export class ItemComponent {
     return box;
   });
   protected boxes: Signal<BoxModel[]>;
+  readonly dialog = inject(MatDialog);
 
   constructor(private _stateService: StateService) {
     this.boxes = this._stateService.getAllBoxes();
+  }
+
+  openImage(): void {
+    this.dialog.open(ImageDialog, {
+      width: '500px',
+      height: '350px',
+      data: {
+        image: this.item()?.image,
+        name: this.item()?.name,
+      },
+    });
   }
 
   save() {

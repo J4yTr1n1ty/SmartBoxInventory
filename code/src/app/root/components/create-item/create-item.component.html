@@ -7,6 +7,18 @@
 
 <div>
   <div class="body">
+    <button mat-flat-button color="primary" (click)="addImage()">
+      <mat-icon>photo</mat-icon>
+      Add Image (Optional)
+    </button>
+    <br *ngIf="imageLoaded" />
+    <img id="itemImage" class="imagePreview" />
+    <br *ngIf="imageLoaded" />
+    <button mat-flat-button color="primary" (click)="AIPredictImage()" *ngIf="imageLoaded">
+      <mat-spinner [diameter]="20" color="black" *ngIf="predictionLoading"></mat-spinner>
+      <span style="color: black" *ngIf="!predictionLoading">AI Predict Name</span>
+    </button>
+    <br />
     <mat-form-field id="itemNameInput">
       <mat-label>
         <mat-icon>category</mat-icon>
@@ -23,18 +35,18 @@
         <mat-select [formControl]="boxInput">
           <mat-select-trigger>
             @if (boxInput.value) {
-            <span>{{boxInput.value!.name}}</span>
+            <span>{{ boxInput.value!.name }}</span>
             <span>&nbsp;</span>
-            <strong>[{{boxInput.value!.id}}]</strong>
+            <strong>[{{ boxInput.value!.id }}]</strong>
             }
           </mat-select-trigger>
           @if (boxes().length == 0) {
           <mat-option disabled selected value>-- Create a box first --</mat-option>
           }
           <mat-option *ngFor="let box of boxes()" class="mat-option" [value]="box">
-            <span>{{box.name}}</span>
+            <span>{{ box.name }}</span>
             <span>&nbsp;</span>
-            <strong>[{{box.id}}]</strong>
+            <strong>[{{ box.id }}]</strong>
           </mat-option>
         </mat-select>
       </mat-form-field>
