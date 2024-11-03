@@ -37,7 +37,7 @@ export class CreateItemComponent {
 
   nameInput: FormControl<string | null> = new FormControl<string>('New Item', [Validators.required]);
   boxInput: FormControl<BoxModel | null> = new FormControl<BoxModel | null>(null, [Validators.required]);
-  nameClearable: boolean = false;
+  nameClearable: boolean = true;
 
   constructor(private _state: StateService) {
     this.boxes = this._state.getAllBoxes();

@@ -12,5 +12,28 @@
       "sizes": "any",
       "purpose": "maskable any"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/add-item-page.png",
+      "sizes": "410x914",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Add Item Page"
+    },
+    {
+      "src": "/assets/screenshots/find-page.png",
+      "sizes": "410x914",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Find Page"
+    },
+    {
+      "src": "/assets/screenshots/box-detail-page.png",
+      "sizes": "410x914",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Detail Page for a Box"
+    }
   ]
 }
